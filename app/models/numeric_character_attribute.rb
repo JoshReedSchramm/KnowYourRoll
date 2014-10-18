@@ -1,3 +1,3 @@
 class NumericCharacterAttribute < CharacterAttribute
-  # validates :value, :numeric_character_attribute => true
+  validates :value, :numeric_character_attribute => true
 end

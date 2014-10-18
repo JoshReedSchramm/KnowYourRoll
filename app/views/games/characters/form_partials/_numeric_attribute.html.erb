@@ -6,7 +6,9 @@
       <%= ca.label :value, field_label %>
       <%= ca.number_field :value, min: game_attribute.min_number, max: game_attribute.max_number %>
       <%= ca.hidden_field :game_attribute_id %>
+      <%= ca.hidden_field :type %>
       <span class="help-block">This is a number between <%= game_attribute.min_number %> and <%= game_attribute.max_number %></span>
+      <%= render partial: "/games/characters/form_partials/errors", locals: { model: character_attribute } %>
     </div>
   <% end %>
 <% end %>

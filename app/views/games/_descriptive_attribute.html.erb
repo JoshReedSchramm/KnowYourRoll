@@ -1,0 +1,8 @@
+<p><%= attribute.name %></p>
+<% if attribute.children.any? %>
+  <ul>
+    <% attribute.children.each do |a| %>
+      <%= render partial: a.type.underscore, locals: { attribute: a } %>
+    <% end %>
+  </ul>
+<% end %>

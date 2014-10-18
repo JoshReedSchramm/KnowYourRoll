@@ -8,7 +8,16 @@ Email: <%= @game.creator.email %>
 <h2>Attribute Groups</h2>
 <ul>
   <% @game.attribute_groups.each do |ag| %>
-    <li><%= ag.name %>(<%= ag.sequence %>) - <%= ag.description %></li>
+    <li>
+      <%= ag.name %>(<%= ag.sequence %>) - <%= ag.description %>
+      <% if ag.game_attributes.any? %>
+        <ul>
+          <% ag.game_attributes.each do |a| %>
+            <%= render partial: a.type.underscore, locals: { attribute:a } %>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

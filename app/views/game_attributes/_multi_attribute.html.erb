@@ -1,0 +1,15 @@
+<%= form_for [game, attribute.becomes(GameAttribute)] do |f| %>
+	<%- f.object = attribute.becomes(attribute.class) %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<%= f.hidden_field :type, value: params[:type] %>
+	<%= f.submit "Do This #{attribute.name}" %>
+<% end %>
+<% if attribute.children.any? %>
+  <ul>
+    <% attribute.children.each do |a| %>
+      <%= render partial: "#{a.type.underscore}", locals: { game: game, attribute: a } %>
+    <% end %>
+  </ul>
+<% end %>

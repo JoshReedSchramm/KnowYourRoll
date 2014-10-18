@@ -1,4 +1,4 @@
-<% if !model.valid? && model.errors.full_messages_for(field) %>
+<% if !model.valid? && model.errors.full_messages_for(field).any? %>
   <ul class="alert alert-danger">
     <% model.errors.full_messages_for(field).each do |msg| %>
       <li><%= msg %></li>

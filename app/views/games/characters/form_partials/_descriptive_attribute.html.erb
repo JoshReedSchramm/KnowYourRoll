@@ -4,7 +4,11 @@
   <%= form.fields_for :character_attributes, character_attribute do |ca| %>
     <div class="form-group">
       <%= ca.label :value, field_label %>
-      <%= ca.text_field :value %>
+      <% if game_attribute.multi_line %>
+        <%= ca.text_area :value %>
+      <% else %>
+        <%= ca.text_field :value %>
+      <% end %>
       <%= ca.hidden_field :game_attribute_id %>
     </div>
   <% end %>

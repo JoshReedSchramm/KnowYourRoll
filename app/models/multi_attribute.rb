@@ -17,10 +17,6 @@ class MultiAttribute < GameAttribute
     self.children.where(type: [NumericAttribute.to_s])
   end
 
-  def allows_multiple_values
-    false
-  end
-
   def build_character_attribute(character)
     if self.has_character_attribute
       character.character_attributes << PicklistCharacterAttribute.new(game_attribute_id: self.id)

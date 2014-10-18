@@ -146,7 +146,7 @@ class DefaultGameService
     at_passive_perception = NumericAttribute.new(name: "Passive Perception", description: "A character's Passive Perception skill level", min_number: -10, max_number: 20, group_sequence: 27)
     skills_group.game_attributes << at_passive_perception
 
-    at_languages = MultiAttribute.new(name: "Languages", description: "The languages that a character can speak and understand", group_sequence: 28)
+    at_languages = MultiAttribute.new(name: "Languages", description: "The languages that a character can speak and understand", group_sequence: 28, allows_multiple_values: true)
     skills_group.game_attributes << at_languages
     at_common = DescriptiveAttribute.new(name: "Common", sequence: 1)
     at_languages.children << at_common
@@ -200,7 +200,7 @@ class DefaultGameService
     at_death_successes = NumericAttribute.new(name: "Successes", description: "Current count of successful death saving throws by a character", min_number: 0, max_number: 3, sequence: 2)
     at_death_saves.children << at_death_successes
 
-    at_weapons = MultiAttribute.new(name: "Weapons", description: "A character's arsenal of weapondry", group_sequence: 7)
+    at_weapons = MultiAttribute.new(name: "Weapons", description: "A character's arsenal of weapondry", group_sequence: 7, allows_multiple_values: true)
     combat_group.game_attributes << at_weapons
 
     at_melee = MultiAttribute.new(name: "Melee Weapon", description: "A character's current melee weapon", sequence: 1)
@@ -349,7 +349,7 @@ class DefaultGameService
     at_longbow_properties = DescriptiveAttribute.new(name: "Longbow Properties", description: "The various special properties of the longbow weapon", sequence: 3)
     at_longbow.children << at_longbow_properties
 
-    at_equipment = MultiAttribute.new(name: "Equipment", description: "A character's armor and equipped items", group_sequence: 8)
+    at_equipment = MultiAttribute.new(name: "Equipment", description: "A character's armor and equipped items", group_sequence: 8, allows_multiple_values: true)
     combat_group.game_attributes << at_equipment
     
     at_armor = MultiAttribute.new(name: "Armor", description: "A character's equipped armor", sequence: 1)
@@ -399,7 +399,7 @@ class DefaultGameService
     at_heavy_shield = DescriptiveAttribute.new(name: "Heavy Shield", sequence: 2)
     at_shield.children << at_heavy_shield
 
-    at_spells = MultiAttribute.new(name: "Spells", description: "A character's spell attacks and defenses", group_sequence: 9)
+    at_spells = MultiAttribute.new(name: "Spells", description: "A character's spell attacks and defenses", group_sequence: 9, allows_multiple_values: true)
     combat_group.game_attributes << at_spells
     at_spell_dc = DescriptiveAttribute.new(name: "Spell Save DC", description: "A character's DC to save against their spells", sequence: 1)
     at_spells.children << at_spell_dc
@@ -430,7 +430,7 @@ class DefaultGameService
     at_10th_level_spell_slots = NumericAttribute.new(name: "10th Level Spell Slots", description: "A character's available 10th level spell slots", min_number: 0, max_number: 1, sequence: 10)
     at_spell_slots.children << at_10th_level_spell_slots
 
-    at_packs = MultiAttribute.new(name: "Equipment Packs", description: "Available equipment packs for a character", group_sequence: 10)
+    at_packs = MultiAttribute.new(name: "Equipment Packs", description: "Available equipment packs for a character", group_sequence: 10, allows_multiple_values: true)
     combat_group.game_attributes << at_packs
     at_burglars_pack = DescriptiveAttribute.new(name: "Burglar's Pack", sequence: 1)
     at_packs.children << at_burglars_pack
@@ -447,7 +447,7 @@ class DefaultGameService
     at_scholars_pack = DescriptiveAttribute.new(name: "Scholar's Pack", sequence: 7)
     at_packs.children << at_scholars_pack
 
-    at_misc_items = MultiAttribute.new(name: "Misc Items", description: "A character's miscellaneous items", group_sequence: 11)
+    at_misc_items = MultiAttribute.new(name: "Misc Items", description: "A character's miscellaneous items", group_sequence: 11, allows_multiple_values: true)
     combat_group.game_attributes << at_misc_items
     at_adventurers_kit = DescriptiveAttribute.new(name: "Adventurer's Kit", sequence: 0)
     at_misc_items.children << at_adventurers_kit
@@ -568,25 +568,25 @@ class DefaultGameService
     at_chaotic_neutral = DescriptiveAttribute.new(name: "Chaotic Neutral", sequence: 6)
     at_alignments.children << at_chaotic_neutral
 
-    at_personality = DescriptiveAttribute.new(name: "Personality", description: "The character's personality traits", group_sequence: 10)
+    at_personality = DescriptiveAttribute.new(name: "Personality", description: "The character's personality traits", group_sequence: 10, multi_line: true)
     character_description_group.game_attributes << at_personality
 
-    at_ideals = DescriptiveAttribute.new(name: "Ideals", description: "The character's ideals", group_sequence: 11)
+    at_ideals = DescriptiveAttribute.new(name: "Ideals", description: "The character's ideals", group_sequence: 11, multi_line: true)
     character_description_group.game_attributes << at_ideals
 
-    at_bonds = DescriptiveAttribute.new(name: "Bonds", description: "The character's bonds", group_sequence: 12)
+    at_bonds = DescriptiveAttribute.new(name: "Bonds", description: "The character's bonds", group_sequence: 12, multi_line: true)
     character_description_group.game_attributes << at_bonds
 
-    at_flaws = DescriptiveAttribute.new(name: "Flaws", description: "The character's flaws", group_sequence: 13)
+    at_flaws = DescriptiveAttribute.new(name: "Flaws", description: "The character's flaws", group_sequence: 13, multi_line: true)
     character_description_group.game_attributes << at_flaws
 
-    at_appearance = DescriptiveAttribute.new(name: "Appearance", description: "What the character looks like in appearance", group_sequence: 14)
+    at_appearance = DescriptiveAttribute.new(name: "Appearance", description: "What the character looks like in appearance", group_sequence: 14, multi_line: true)
     character_description_group.game_attributes << at_appearance
 
-    at_backstory = DescriptiveAttribute.new(name: "Backstory", description: "The character's full backstory", group_sequence: 15)
+    at_backstory = DescriptiveAttribute.new(name: "Backstory", description: "The character's full backstory", group_sequence: 15, multi_line: true)
     character_description_group.game_attributes << at_backstory
 
-    at_organizations = DescriptiveAttribute.new(name: "Organizations", description: "The character's organizations and titles within those organizations", group_sequence: 16)
+    at_organizations = DescriptiveAttribute.new(name: "Organizations", description: "The character's organizations and titles within those organizations", group_sequence: 16, multi_line: true)
     character_description_group.game_attributes << at_organizations
 
     at_currency = MultiAttribute.new(name: "Currency", description: "This is a character's purse contents", group_sequence: 17)
@@ -602,7 +602,7 @@ class DefaultGameService
     at_copper = NumericAttribute.new(name: "Copper Pieces", description: "The character's amount of copper pieces", min_number: 0, max_number: 500000, sequence: 1)
     at_currency.children << at_copper
 
-    at_treasure = DescriptiveAttribute.new(name: "Treasure", description: "The character's list of miscellaneous treasure (not currency) and items of value", group_sequence: 18)
+    at_treasure = DescriptiveAttribute.new(name: "Treasure", description: "The character's list of miscellaneous treasure (not currency) and items of value", group_sequence: 18, multi_line: true)
     character_description_group.game_attributes << at_treasure
     ###### Character Description Group ######
 

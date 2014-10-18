@@ -6,10 +6,9 @@
         <%= ca.label :value, field_label %>
         <%= ca.hidden_field :game_attribute_id %>
         <% if game_attribute.allows_multiple_values %>
-          This item allows multiple values
-          <%# render checkboxes %>
+          <%= ca.select :value, game_attribute.options.collect{|o|[o.name, o.id]}, { include_blank: false }, { multiple: 'multiple' }%>
         <% else %>
-          <%= ca.select :value, game_attribute.options.collect{|o|[o.name, o.id]} %>
+          <%= ca.select :value, game_attribute.options.collect{|o|[o.name, o.id]}, { include_blank: true }  %>
         <% end %>
       </div>
     <% end %>

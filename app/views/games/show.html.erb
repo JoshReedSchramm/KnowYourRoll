@@ -3,43 +3,37 @@
     <div class="col-sm-8">
       <h1><%= @game.name %> <%= image_tag("info_button.svg", class:"info", alt:"#{@game.description}") %></h1>
     </div>
-    <div class="col-sm-4">
-      DM: <%= @game.creator.name %><br />
-      Created: 11/11/1902
+    <div class="col-sm-4 gamemeta">
+      GM: <%= @game.creator.name %><br/>
+      Created: <%= @game.created_at.strftime("%m/%d/%Y") %>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      <h2>System Setup</h2>
-      <div class="row">
-        <% @game.attribute_groups.each do |ag| %>
-        <div class="col-sm-4">
-          <div class="col-sm-12 ability_group">
-            <h4><%= ag.name %> (<%= ag.sequence %>) <%= image_tag("info_button.svg", class:"info") %></h4>
-            <div class="group_description"><%= ag.description %></div>
-            <% if ag.game_attributes.any? %>
-            <div class="attribute_list">
-              <% ag.game_attributes.each do |a| %>
-                <%= render partial: a.type.underscore, locals: { attribute:a } %>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
+    <% @game.attribute_groups.each do |ag| %>
+    <div class="col-sm-4">
+      <div class="col-sm-12 ability_group">
+        <h4><%= ag.name %> (<%= ag.sequence %>) <%= image_tag("info_button.svg", class:"info") %></h4>
+        <div class="group_description"><%= ag.description %></div>
+        <% if ag.game_attributes.any? %>
+        <div class="attribute_list">
+          <% ag.game_attributes.each do |a| %>
+            <%= render partial: a.type.underscore, locals: { attribute:a } %>
+          <% end %>
         </div>
         <% end %>
-        <div class="col-sm-4 addgroup">
-          <div class="col-sm-12 ability_group">
-            <h4>Add group</h4>
-            <a id="addgroup" href="javascript:void(0)"><%= image_tag("info_button.svg") %></a>
-          </div>
-        </div>
       </div>
-      
+    </div>
+    <% end %>
+    <div class="col-sm-4 addgroup">
+      <div class="col-sm-12 ability_group">
+        <h4>Add group</h4>
+        <a id="addgroup" href="javascript:void(0)"><%= image_tag("info_button.svg") %></a>
+      </div>
     </div>
   </div>
+
   <div id="editattribute_form">
-    This is an edit form!!!!
-  
+    This is an edit form!!!!  
   </div>
   <div id="overlay">&nbsp;</div>
   <div class="row">

@@ -11,6 +11,11 @@
 $font-stack:      'Ubuntu', Helvetica, Verdana, "Lucida Grande", sans-serif;
 $primary-color:   #333;
 $default_padding: 15px;
+$silver: #a4a6a6;
+$smoke: #d9d9d9;
+$lightgray: #f2f2f2;
+$red: #cd0a1b;
+$almostblack: #0f0f0f;
 
 html {
 	padding:20px;
@@ -24,31 +29,44 @@ body {
 
 label{
   font-style:italic;
-  color:#999;
+  color:$red;
 }
 
 #header {
-  background-color:#999;
-  color:white;
+  background-color:transparent;
+  color:$red;
   heigh:75px;
   padding:$default_padding;
   font-size:28px;
+  border-bottom:1px solid $red;
+  margin-bottom:20px;
+}
+
+#header img {
+  vertical-align:middle;
 }
 
 .gameheader {
-  background-color:#ccc;
-  padding:$default_padding;
+  padding:20px 0px;
+  color:$red;
+  margin-bottom:20px;
 }
 
 .gameheader h1{
   margin:0px;
 }
 
+
 .logo {
   height:40px;
   width:40px;
   vertical-align:middle;
   margin-right:10px;
+}
+
+.logo_full {
+  height:40px;
+  width:288px;
 }
 
 img.info {
@@ -62,7 +80,7 @@ img.info {
 }
 
 .ability_group {
-  border:solid 1px #999;
+  border:solid 1px $almostblack;
   border-radius: 5px;
   margin-bottom:30px;
   padding:0px;
@@ -71,7 +89,7 @@ img.info {
 .ability_group h4 {
   font-style:italic;
   padding:10px 15px;
-  background-color:#999;
+  background-color:$almostblack;
   color:white;
   margin:0px;
 }
@@ -87,15 +105,17 @@ img.info {
 }
 
 .attribute_item {
-  border-top:solid 1px #6da3af;
+  border-top:solid 1px $red;
   padding:$default_padding;
   text-align: left;
 }
 
-
+.attribute_item a {
+  color: $red;
+}
 
 .attribute_item:hover, .attribute_item:hover .attribute_name, .attribute_item:hover .attribute_summary {
-  background-color: #d7f7ff;
+  background-color: $lightgray;
 }
 
 

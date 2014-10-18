@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20141018014009) do
     t.datetime "updated_at"
   end
 
+  create_table "game_attributes", force: true do |t|
+    t.string "name"
+    t.string "abbreviation"
+    t.string "type"
+  end
+
   create_table "games", force: true do |t|
     t.string   "name"
     t.text     "description"

@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20141018043817) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
-    t.integer "sequence",           default: 0
-    t.integer "parent_id"
     t.integer "group_sequence",     default: 0
     t.integer "attribute_group_id"
+    t.integer "sequence",           default: 0
+    t.integer "parent_id"
     t.integer "game_id"
   end
 

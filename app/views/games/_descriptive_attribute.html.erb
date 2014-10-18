@@ -1,8 +1,4 @@
-<p><%= attribute.name %></p>
-<% if attribute.children.any? %>
-  <ul>
-    <% attribute.children.each do |a| %>
-      <%= render partial: a.type.underscore, locals: { attribute: a } %>
-    <% end %>
-  </ul>
-<% end %>
+<div class="attribute_item">
+  <span class="attribute_name"><%= link_to "#{attribute.name}", "#", class: "attribute_edit", data: { id: "#{attribute.id}" } %></span>
+  <span class="attribute_summary"><%= attribute.description %></span>
+</div>

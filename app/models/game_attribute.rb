@@ -7,4 +7,9 @@ class GameAttribute < ActiveRecord::Base
   validates :group_sequence, presence: true #, uniqueness: { scope: :attribute_group_id } # Isn't working as is 
   validates :name, presence: true
   validates :type, presence: true
+  
+  def summary
+    ""
+  end
+  
 end

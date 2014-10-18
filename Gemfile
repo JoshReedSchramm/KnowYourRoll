@@ -43,6 +43,8 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'acts_as_tree'
+
 
 group :development, :test do
   gem 'letter_opener'

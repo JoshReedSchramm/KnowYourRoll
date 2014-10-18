@@ -7,6 +7,10 @@ gem 'rails', '4.1.6'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'compass-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -38,3 +42,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+group :development, :test do
+  gem 'letter_opener'
+  gem 'rspec-rails', '~>3.0.0'
+  gem 'factory_girl_rails', '~>4.0'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'forgery'
+  gem 'webmock'
+  gem 'simplecov'
+end

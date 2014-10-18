@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <p class='alert alert-success'><%= flash[:notice] %></p>
+<% end %>
 <h1>Update <%= @character.name %></h1>
 
 <%= form_for [@game, @character] do |f| %>

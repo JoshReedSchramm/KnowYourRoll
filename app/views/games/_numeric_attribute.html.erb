@@ -1,8 +1,5 @@
-<p><%= attribute.name %>(<%= attribute.min_number %>-<%= attribute.max_number %>)</p>
-<% if attribute.children.any? %>
-  <ul>
-    <% attribute.children.each do |a| %>
-      <%= render partial: a.type.underscore, locals: { attribute: a } %>
-    <% end %>
-  </ul>
-<% end %>
+<div class="attribute_item">
+  <span class="attribute_name"><%= link_to "#{attribute.name}", "#", class: "attribute_edit", data: { id: "#{attribute.id}" }  %></span>
+  <span class="attribute_summary">min:<%= attribute.min_number %> max:<%= attribute.max_number %></span>
+  
+</div>

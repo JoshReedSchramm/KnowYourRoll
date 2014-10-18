@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container main_content">
   <div class="row">
-    <div class="xs-col-12">
+    <div class="col-sm-4 col-sm-offset-4">
       <%= form_for @game do |f| %>
         <%= render partial: "/shared/errors", locals: { model: @game } %>
         <div class="form-group">
@@ -21,10 +21,8 @@
             <%= c.email_field :email, :value => 'jburkle19@gmail.com', class: "form-control" %>
           </div>
         <% end %>
-        <%= f.submit class: "btn btn-default" %>
+        <%= f.submit class: "btn btn-primary btn-lg"  %> <%= link_to "Cancel", root_path, class: "btn btn-link btn-lg" %>
       <% end %>
     </div>
   </div>
 </div>
-
-<%= link_to "Home", root_path %> | <%= link_to "New Game", new_game_path %>

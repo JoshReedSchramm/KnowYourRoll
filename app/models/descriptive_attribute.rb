@@ -1,4 +1,5 @@
 class DescriptiveAttribute < GameAttribute
+
   def has_character_attribute
     true
   end
@@ -6,4 +7,9 @@ class DescriptiveAttribute < GameAttribute
   def build_character_attribute(character)
     character.character_attributes << DescriptiveCharacterAttribute.new(game_attribute_id: self.id)
   end
+
+  def summary
+    self.description
+  end
 end
+

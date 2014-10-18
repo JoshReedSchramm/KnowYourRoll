@@ -1,4 +1,5 @@
 class MultiAttribute < GameAttribute
+
   include CharacterAttributeBuilder
 
   def has_character_attribute
@@ -26,4 +27,9 @@ class MultiAttribute < GameAttribute
       end
     end
   end
+
+  def summary
+    self.description
+  end
 end
+

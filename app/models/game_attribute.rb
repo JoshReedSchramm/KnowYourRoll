@@ -12,4 +12,9 @@ class GameAttribute < ActiveRecord::Base
     # Abstract implementation, build an attribute builder in the implementations
     nil
   end
+  
+  def summary
+    ""
+  end
+  
 end

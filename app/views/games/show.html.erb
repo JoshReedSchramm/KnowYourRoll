@@ -20,6 +20,9 @@ Email: <%= @game.creator.email %>
     </li>
   <% end %>
 </ul>
+<%= link_to "New Multi", new_game_multi_attribute_path(game_id: @game, type: "MultiAttribute") %>
+<%= link_to "New Numeric", new_game_multi_attribute_path(game_id: @game, type: "NumericAttribute") %>
+<%= link_to "New Descriptive", new_game_multi_attribute_path(game_id: @game, type: "DescriptiveAttribute") %>
 
 <%= link_to "Home", root_path %> | <%= link_to "New Game", new_game_path %>
 <br />

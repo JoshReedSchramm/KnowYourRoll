@@ -2,15 +2,20 @@ class GameAttributesController < ApplicationController
   before_action :set_game_attribute, only: [:show, :edit, :update, :destroy]
 
   def new
-    @game_attribute = GameAttribute.new
+    @game_attribute = params[:type].constantize.new
+    @game_attribute.game_id = params[:game_id]
+    rescue
+      "not a valid type"
   end
 
   def create
-    @game_attribute = GameAttribute.new(game_params)
+    @game_attribute = GameAttribute.new(game_attribute_params)
+    @game_attribute.game_id = params[:game_id]
+    
     if @game_attribute.save
-      redirect_to @game_attribute, notice: "Your game has been created"
+      redirect_to game_path(@game_attribute.game.gm_code), notice: "Your game has been created"
     else
-      render :new
+      
     end
   end
 
@@ -21,11 +26,8 @@ class GameAttributesController < ApplicationController
   end
 
   def update
-    if @game_attribute.update(game_attribute_params)
-      redirect_to @game_attribute, notice: "#{@game_attribute.name} has been updated!"
-    else
-      redirect_to @game_attribute, notice: "#{@game_attribute.name} cannot be updated!"
-    end
+    @game_attribute.update_attributes(game_attribute_params)
+    redirect_to :back, notice: "#{@game_attribute.name} was updated!"
   end
 
   def destroy
@@ -39,6 +41,6 @@ class GameAttributesController < ApplicationController
     end
 
     def game_attribute_params
-      params.require(:game_attribute).permit(:name, :description, :abbreviation, :game_id, :min_number, :max_number, :type)
+      params.require(:game_attribute).permit( :parent_id, :sequence, :group_sequence, :attribute_group_id, :name, :description, :abbreviation, :game_id, :min_number, :max_number, :type)
     end
 end

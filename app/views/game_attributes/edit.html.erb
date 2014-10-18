@@ -1,12 +1,1 @@
-<h1>Edit <%= @game_attribute.name %> </h1>
-
-<%= form_for [@game, @game_attribute] do |f| %>
-	<div>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</div>
-
-	<%= render partial: "/game_attributes/forms/#{@game_attribute.type.underscore}", :locals=>{f: f} %>
-
-	<%= f.submit %>
-<% end %>
+<%= render partial: "#{@game_attribute.type.underscore}",locals: { game: @game, attribute: @game_attribute } %>

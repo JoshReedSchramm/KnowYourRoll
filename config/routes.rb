@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :games do
-    resources :game_attributes
+    resources :numeric_attributes, controller: 'game_attributes'
+    resources :descriptive_attributes, controller: 'game_attributes'
+    resources :multi_attributes, controller: 'game_attributes'
   end
 
   # Example of regular route:

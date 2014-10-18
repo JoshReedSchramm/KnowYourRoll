@@ -39,6 +39,6 @@ class GameAttributesController < ApplicationController
     end
 
     def game_attribute_params
-      params.require(:game_attribute).permit(:name, :description, :abbreviation, :min_number, :max_number, :type)
+      params.require(:game_attribute).permit(:name, :description, :abbreviation, :game_id, :min_number, :max_number, :type)
     end
 end

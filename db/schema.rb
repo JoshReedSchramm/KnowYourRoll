@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018035243) do
+ActiveRecord::Schema.define(version: 20141018043817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141018035243) do
     t.integer "attribute_group_id"
     t.integer "sequence",           default: 0
     t.integer "parent_id"
+    t.integer "game_id"
   end
 
   create_table "games", force: true do |t|

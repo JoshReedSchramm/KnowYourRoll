@@ -10,7 +10,18 @@ Rails.application.routes.draw do
     resources :descriptive_attributes, controller: 'game_attributes'
     resources :multi_attributes, controller: 'game_attributes'
     resources :characters, controller: "games/characters"
-    resources :game_attributes
+    resources :attribute_groups do
+      resources :numeric_attributes, controller: 'game_attributes'
+      resources :descriptive_attributes, controller: 'game_attributes'
+      resources :multi_attributes, controller: 'game_attributes'
+      resources :game_attributes
+    end
+    resources :game_attributes do
+      resources :numeric_attributes, controller: 'game_attributes'
+      resources :descriptive_attributes, controller: 'game_attributes'
+      resources :multi_attributes, controller: 'game_attributes'
+      resources :game_attributes
+    end
   end
 
   # Example of regular route:

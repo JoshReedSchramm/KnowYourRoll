@@ -1,4 +1,4 @@
-<%= form_for [game, attribute.becomes(GameAttribute)] do |f| %>
+<%= form_for [game, @parent.becomes(GameAttribute), attribute.becomes(GameAttribute)] do |f| %>
 	<%- f.object = attribute.becomes(attribute.class) %>
 	<div>
 		<%= f.label :name %>

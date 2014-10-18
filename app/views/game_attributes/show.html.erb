@@ -1,0 +1,5 @@
+<%= @game_attribute.name %>
+
+<%= link_to "New Multi", new_game_game_attribute_multi_attribute_path(game_id: @game, game_attribute_id: params[:id], type: "MultiAttribute") %>
+<%= link_to "New Numeric", new_game_game_attribute_multi_attribute_path(game_id: @game, game_attribute_id: params[:id], attribute_group_id: @attribute_group, type: "NumericAttribute") %>
+<%= link_to "New Descriptive", new_game_game_attribute_multi_attribute_path(game_id: @game, game_attribute_id: params[:id], attribute_group_id: @attribute_group, type: "DescriptiveAttribute") %>

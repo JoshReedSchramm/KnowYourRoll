@@ -1,0 +1,12 @@
+<%= form_for [game, @parent, attribute.becomes(GameAttribute)] do |f| %>
+	<%- f.object = attribute.becomes(attribute.class) %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :description, "Tooltip" %>
+		<%= f.text_area :description %>
+	</div>
+	<%= f.submit "Update #{attribute.name}" %>
+<% end %>

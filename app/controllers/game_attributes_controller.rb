@@ -27,11 +27,16 @@ class GameAttributesController < ApplicationController
   end
 
   def edit
+     @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+     @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
   end
 
   def update
-    @game_attribute.update_attributes(game_attribute_params)
-    redirect_to :back, notice: "#{@game_attribute.name} was updated!"
+    if @game_attribute.update_attributes(game_attribute_params)
+      redirect_to :back, notice: "#{@game_attribute.name} was updated!"
+    else
+      redirect_to :back
+    end
   end
 
   def destroy

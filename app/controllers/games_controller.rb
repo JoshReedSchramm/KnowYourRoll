@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def new
     @game = Game.new
+    @game.build_creator
   end
 
   def create
@@ -8,18 +9,18 @@ class GamesController < ApplicationController
     if @game.save
       DefaultGameService.new(@game.id).populate_defaults
 
-      redirect_to @game, notice: "Your game has been created"
+      redirect_to game_path(@game.gm_code), notice: "Your game has been created"
     else
       render :new
     end
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.find_by(gm_code: params[:id])
   end
 
   private
     def game_params
-      params.require(:game).permit(:name, :description)
+      params.require(:game).permit(:name, :description, :creator_attributes => [:name, :email])
     end
 end

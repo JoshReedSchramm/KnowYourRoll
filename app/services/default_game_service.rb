@@ -482,9 +482,6 @@ class DefaultGameService
     ###### Combat Group ######
 
     ###### Character Description Group ######
-    at_name = DescriptiveAttribute.new(name: "Name", description: "The character's full name", group_sequence: 1)
-    character_description_group.game_attributes << at_name
-
     at_race = MultiAttribute.new(name: "Race", description: "The character's race", group_sequence: 2)
     character_description_group.game_attributes << at_race
     at_human = DescriptiveAttribute.new(name: "Human", sequence: 1)

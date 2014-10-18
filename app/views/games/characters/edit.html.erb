@@ -1,4 +1,4 @@
-<h1>Create your Character</h1>
+<h1>Update <%= @character.name %></h1>
 
 <%= form_for [@game, @character] do |f| %>
   <%= render partial: "/shared/errors", locals: { model: @character } %>

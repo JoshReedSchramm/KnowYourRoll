@@ -7,6 +7,8 @@ class Character < ActiveRecord::Base
 
   after_initialize :build_attribute_graph
 
+  validates :name, presence: true
+
   def has_attribute_in_group(group)
     self.character_attributes.joins(:game_attribute).joins(:attribute_group).where(["attribute_group.id=?", group.id]).any?
   end

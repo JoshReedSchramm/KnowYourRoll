@@ -12,9 +12,23 @@ class Games::CharactersController < ApplicationController
   def create
     @character = @game.characters.new(character_params)
     if @character.save
-      redirect_to [@game, @character]
+      redirect_to [:edit, @game, @character], notice: "Character was created"
     else
       render :new
+    end
+  end
+
+  def edit
+    @character = @game.characters.find(params[:id])
+  end
+
+  def update
+    raise params.inspect
+    @character = @game.characters.find(params[:id])
+    if @character.update_attributes(character_params)
+      redirect_to [:edit, @game, @character], notice: "Character was updated"
+    else
+      render :edit
     end
   end
 
@@ -24,6 +38,6 @@ class Games::CharactersController < ApplicationController
     end
 
     def character_params
-      params.require(:character).permit(:character_attributes_attributes => [:value, :game_attribute_id])
+      params.require(:character).permit([:name, :character_attributes_attributes => [{:value => []}, :game_attribute_id, :value, :id]])
     end
 end

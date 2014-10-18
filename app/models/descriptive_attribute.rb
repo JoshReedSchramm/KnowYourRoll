@@ -1,0 +1,3 @@
+class DescriptiveAttribute < GameAttribute
+
+end

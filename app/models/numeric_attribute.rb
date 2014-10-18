@@ -1,0 +1,3 @@
+class NumericAttribute < GameAttribute
+
+end

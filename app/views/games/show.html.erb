@@ -11,32 +11,6 @@
   <div class="row">
     <div class="col-sm-12">
       <h2>System Setup</h2>
-
-<h2>Creator</h2>
-Name: <%= @game.creator.name %><br />
-Email: <%= @game.creator.email %>
-
-<h2>Attribute Groups</h2>
-<ul>
-  <% @game.attribute_groups.each do |ag| %>
-    <li>
-      <%= ag.name %>(<%= ag.sequence %>) - <%= ag.description %>
-      <% if ag.game_attributes.any? %>
-        <ul>
-          <% ag.game_attributes.each do |a| %>
-            <%= render partial: a.type.underscore, locals: { attribute:a } %>
-          <% end %>
-        </ul>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "New Group", new_game_attribute_group_path(game_id: @game) %>
-
-<%= link_to "Home", root_path %> | <%= link_to "New Game", new_game_path %>
-<br />
-<%= link_to "Characters", game_characters_path(@game) %>
       <div class="row">
         <% @game.attribute_groups.each do |ag| %>
         <div class="col-sm-4">

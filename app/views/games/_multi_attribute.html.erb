@@ -1,5 +1,8 @@
 <div class="attribute_item">
-  <span class="attribute_name"><%= link_to "#{attribute.name}", "#", class: "attribute_edit", data: { id: "#{attribute.id}" }  %></span>
-  <span class="attribute_summary"><%= truncate(build_summary(attribute.children), length:60) %></span>
-  
+  <span class="attribute_name">
+  	<%= link_to "#{attribute.name}", "#", class: "attribute_edit", data: { id: "#{attribute.id}" }  %>
+  </span>
+  <span class="attribute_summary">
+  	<%= truncate(build_summary(attribute.children), length:60) %>
+  </span>
 </div>

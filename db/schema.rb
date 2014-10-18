@@ -49,15 +49,9 @@ ActiveRecord::Schema.define(version: 20141018203401) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
-<<<<<<< HEAD
     t.integer "group_sequence",         default: 0
     t.integer "attribute_group_id"
     t.integer "sequence",               default: 0
-=======
-    t.integer "group_sequence",     default: 0
-    t.integer "attribute_group_id"
-    t.integer "sequence",           default: 0
->>>>>>> begin_frontend
     t.integer "parent_id"
     t.integer "game_id"
     t.boolean "multi_line",             default: false

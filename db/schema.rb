@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20141018033314) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
-    t.integer "sequence",     default: 0
+    t.integer "sequence",           default: 0
     t.integer "parent_id"
+    t.integer "group_sequence",     default: 0
+    t.integer "atrribute_group_id"
   end
 
   create_table "games", force: true do |t|

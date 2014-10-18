@@ -1,2 +1,9 @@
 <h1><%= @game.name %></h1>
 <p><%= @game.description %></p>
+
+<h2>Attribute Groups</h2>
+<ul>
+  <% @game.attribute_groups.each do |ag| %>
+    <li><%= ag.name %>(<%= ag.sequence %>) - <%= ag.description %></li>
+  <% end %>
+</ul>

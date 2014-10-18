@@ -6,6 +6,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
+      DefaultGameService.new(@game.id).populate_defaults
+
       redirect_to @game, notice: "Your game has been created"
     else
       render :new

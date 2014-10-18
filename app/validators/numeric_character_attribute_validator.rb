@@ -7,7 +7,7 @@ class NumericCharacterAttributeValidator < ActiveModel::Validator
     if val && val <= record.game_attribute.max_number && val >= record.game_attribute.min_number
       return true
     else
-      record.errors[:numeric_character_attribute] << "#{record.game_attribute.name} must be a value between #{record.game_attribute.min_number} and #{record.game_attribute.max_number}"
+      record.errors[record.game_attribute.name] << " must be a value between #{record.game_attribute.min_number} and #{record.game_attribute.max_number}"
     end
   end
 

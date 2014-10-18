@@ -26,6 +26,7 @@ class MultiAttribute < GameAttribute
         container_element.build_character_attribute(character)
       end
     end
+    false
   end
 
   def summary

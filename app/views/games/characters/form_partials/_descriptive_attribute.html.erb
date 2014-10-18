@@ -10,6 +10,8 @@
         <%= ca.text_field :value %>
       <% end %>
       <%= ca.hidden_field :game_attribute_id %>
+      <%= ca.hidden_field :type %>
+      <%= render partial: "/games/characters/form_partials/errors", locals: { model: character_attribute } %>
     </div>
   <% end %>
 <% end %>

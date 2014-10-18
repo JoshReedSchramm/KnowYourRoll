@@ -10,6 +10,8 @@
         <% else %>
           <%= ca.select :value, game_attribute.options.collect{|o|[o.name, o.id]}, { include_blank: true }  %>
         <% end %>
+        <%= ca.hidden_field :type %>
+        <%= render partial: "/games/characters/form_partials/errors", locals: { model: character_attribute } %>
       </div>
     <% end %>
   <% end %>

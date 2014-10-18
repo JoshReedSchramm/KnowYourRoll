@@ -5,8 +5,6 @@ class Character < ActiveRecord::Base
   has_many :character_attributes
   accepts_nested_attributes_for :character_attributes
 
-  after_initialize :build_attribute_graph
-
   validates :name, presence: true
 
   def has_attribute_in_group(group)
@@ -17,15 +15,13 @@ class Character < ActiveRecord::Base
     self.character_attributes.to_a.find{|a| a.game_attribute_id == game_attribute.id}
   end
 
-  private
-    def build_attribute_graph
-      if self.new_record?
-        game.attribute_groups.each do |ag|
-          ag.game_attributes.each do |a|
-            build_attribute(self, a)
-          end
+  def build_attribute_graph
+    if self.new_record?
+      game.attribute_groups.each do |ag|
+        ag.game_attributes.each do |a|
+          build_attribute(self, a)
         end
       end
     end
-
+  end
 end

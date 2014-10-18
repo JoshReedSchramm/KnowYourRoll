@@ -5,6 +5,7 @@ class NumericAttribute < GameAttribute
 
   def build_character_attribute(character)
     character.character_attributes << NumericCharacterAttribute.new(game_attribute_id: self.id)
+    true
   end
 
   def summary

@@ -7,6 +7,7 @@ class Games::CharactersController < ApplicationController
 
   def new
     @character = @game.characters.new
+    @character.build_attribute_graph
   end
 
   def create
@@ -23,9 +24,9 @@ class Games::CharactersController < ApplicationController
   end
 
   def update
-    raise params.inspect
     @character = @game.characters.find(params[:id])
     if @character.update_attributes(character_params)
+      raise @character
       redirect_to [:edit, @game, @character], notice: "Character was updated"
     else
       render :edit
@@ -38,6 +39,6 @@ class Games::CharactersController < ApplicationController
     end
 
     def character_params
-      params.require(:character).permit([:name, :character_attributes_attributes => [{:value => []}, :game_attribute_id, :value, :id]])
+      params.require(:character).permit([:name, :character_attributes_attributes => [{:value => []}, :game_attribute_id, :value, :id, :type]])
     end
 end

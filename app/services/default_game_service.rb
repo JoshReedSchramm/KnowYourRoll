@@ -5,6 +5,8 @@ class DefaultGameService
   end
 
   def populate_defaults
+    
+    #Add Attribute Groups to the newly created Game
     abilities_group = AttributeGroup.new(name: "Abilities", sequence: 0)
     skills_group = AttributeGroup.new(name: "Skills", sequence: 1)
     combat_group = AttributeGroup.new(name: "Combat", sequence: 2)
@@ -15,7 +17,9 @@ class DefaultGameService
     game.attribute_groups << combat_group
     game.attribute_groups << character_description_group
 
-    # Add primary attribute to group
+    #Add Game Attributes to each Attribute Group belonging to the newly created Game
+    # DescriptiveAttribute || MultiAttribute || NumericAttribute
+    at_str = GameAttribute.new()
   end
 
   private

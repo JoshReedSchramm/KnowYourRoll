@@ -1,10 +1,10 @@
 <h1>Update <%= @character.name %></h1>
 
 <%= form_for [@game, @character] do |f| %>
-  <%= render partial: "/shared/errors", locals: { model: @character } %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <%= render partial: "/shared/field_errors", locals: { model: @character, field: :name } %>
   </div>
   <% @game.attribute_groups.each do |ag| %>
     <fieldset>

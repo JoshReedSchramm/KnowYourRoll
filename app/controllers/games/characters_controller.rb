@@ -7,6 +7,7 @@ class Games::CharactersController < ApplicationController
 
   def new
     @character = @game.characters.new
+    @character.build_attribute_graph
   end
 
   def create
@@ -23,7 +24,6 @@ class Games::CharactersController < ApplicationController
   end
 
   def update
-    raise params.inspect
     @character = @game.characters.find(params[:id])
     if @character.update_attributes(character_params)
       redirect_to [:edit, @game, @character], notice: "Character was updated"

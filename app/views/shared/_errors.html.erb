@@ -1,0 +1,16 @@
+<% unless model.errors.empty? %>
+  <div class="alert alert-danger">
+    <strong>
+      <% if defined? heading %>
+        <%= t(heading) %>
+      <% else %>
+        Please correct the errors below
+      <% end %>
+    </strong><br>
+    <ul id="errors">
+    <% model.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

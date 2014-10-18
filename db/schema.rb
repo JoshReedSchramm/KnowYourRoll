@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018022955) do
+ActiveRecord::Schema.define(version: 20141018025655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20141018022955) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
+    t.integer "group_sequence",     default: 0
+    t.integer "atrribute_group_id"
   end
 
   create_table "games", force: true do |t|

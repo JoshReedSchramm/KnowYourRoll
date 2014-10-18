@@ -1,0 +1,2 @@
+class PicklistCharacterAttribute < CharacterAttribute
+end

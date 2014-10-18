@@ -1,0 +1,2 @@
+class DescriptiveCharacterAttribute < CharacterAttribute
+end

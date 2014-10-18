@@ -1,0 +1,11 @@
+<% character_attribute = @character.character_attribute_matching_game_attribute(game_attribute) %>
+
+<% if character_attribute %>
+  <%= form.fields_for :character_attributes, character_attribute do |ca| %>
+    <div class="form-group">
+      <%= ca.label :value, field_label %>
+      <%= ca.text_field :value %>
+      <%= ca.hidden_field :game_attribute_id %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Characters for <%= @game.name %></h1>
+
+<ul>
+  <% @characters.each do |c| %>
+    <li><%= link_to c.to_s, [@game,c] %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a Character", new_game_character_path(@game) %>

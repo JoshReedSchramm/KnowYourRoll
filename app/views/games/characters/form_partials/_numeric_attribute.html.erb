@@ -1,0 +1,12 @@
+<% character_attribute = @character.character_attribute_matching_game_attribute(game_attribute) %>
+
+<% if character_attribute %>
+  <%= form.fields_for :character_attributes, character_attribute do |ca| %>
+    <div class="form-group">
+      <%= ca.label :value, field_label %>
+      <%= ca.number_field :value, min: game_attribute.min_number, max: game_attribute.max_number %>
+      <%= ca.hidden_field :game_attribute_id %>
+      <span class="help-block">This is a number between <%= game_attribute.min_number %> and <%= game_attribute.max_number %></span>
+    </div>
+  <% end %>
+<% end %>

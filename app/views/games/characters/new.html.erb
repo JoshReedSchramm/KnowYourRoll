@@ -1,0 +1,13 @@
+<h1>Create your Character</h1>
+
+<%= form_for [@game, @character] do |f| %>
+  <% @game.attribute_groups.each do |ag| %>
+    <fieldset>
+      <legend><%= ag.name %></legend>
+      <% ag.game_attributes.each do |ga| %>
+        <%= render partial: "/games/characters/form_partials/#{ga.class.to_s.underscore}", locals: { game_attribute: ga, field_label: ga.name, form: f, character: @character } %>
+      <% end %>
+    </fieldset>
+  <% end %>
+  <%= f.submit "Save Character", class: "btn btn-default" %>
+<% end %>

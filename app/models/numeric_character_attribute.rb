@@ -1,0 +1,2 @@
+class NumericCharacterAttribute < CharacterAttribute
+end

@@ -22,3 +22,5 @@ Email: <%= @game.creator.email %>
 </ul>
 
 <%= link_to "Home", root_path %> | <%= link_to "New Game", new_game_path %>
+<br />
+<%= link_to "Characters", game_characters_path(@game) %>

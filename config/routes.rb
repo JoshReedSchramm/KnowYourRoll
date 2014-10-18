@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :numeric_attributes, controller: 'game_attributes'
     resources :descriptive_attributes, controller: 'game_attributes'
     resources :multi_attributes, controller: 'game_attributes'
+    resources :characters, controller: "games/characters"
   end
 
   # Example of regular route:

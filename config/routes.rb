@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :games
+  resources :games do
+    resources :numeric_attributes, controller: 'game_attributes'
+    resources :descriptive_attributes, controller: 'game_attributes'
+    resources :multi_attributes, controller: 'game_attributes'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

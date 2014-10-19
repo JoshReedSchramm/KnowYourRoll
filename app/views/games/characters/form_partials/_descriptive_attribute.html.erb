@@ -3,7 +3,9 @@
 <% if character_attribute %>
   <%= form.fields_for :character_attributes, character_attribute do |ca| %>
     <div class="form-group">
+      <% if field_label != nil %>
       <%= ca.label :value, field_label %>
+      <% end %>
       <% if game_attribute.multi_line %>
         <%= ca.text_area :value %>
       <% else %>

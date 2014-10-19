@@ -26,7 +26,6 @@ class Games::CharactersController < ApplicationController
   def update
     @character = @game.characters.find(params[:id])
     if @character.update_attributes(character_params)
-      raise @character
       redirect_to [:edit, @game, @character], notice: "Character was updated"
     else
       render :edit

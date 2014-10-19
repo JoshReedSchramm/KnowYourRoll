@@ -5,8 +5,12 @@ class GameAttributesController < ApplicationController
   def new
     @game_attribute = params[:type].constantize.new
     @game_attribute.game_id = params[:game_id]
-      @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
-      @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+    @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    respond_to do |format|
+      format.html
+      format.js
+    end
     rescue
       "not a valid type"
   end
@@ -17,7 +21,7 @@ class GameAttributesController < ApplicationController
       @game_attribute.attribute_group_id = @parent.id unless params[:attribute_group_id].blank?
       @game_attribute.parent_id = @parent.id unless params[:game_attribute_id].blank?
     if @game_attribute.save
-      redirect_to game_path(@game_attribute.game.gm_code), notice: "Your game has been created"
+      redirect_to game_path(@game_attribute.game), notice: "Your game has been created"
     else
       
     end
@@ -27,8 +31,12 @@ class GameAttributesController < ApplicationController
   end
 
   def edit
-     @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
-     @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+    @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
@@ -46,7 +54,7 @@ class GameAttributesController < ApplicationController
 
     def set_game_attribute
       @game_attribute = GameAttribute.find(params[:id])
-      @game = Game.where(gm_code: params[:game_id]).first
+      @game = Game.find(params[:game_id])
     end
 
     def game_attribute_params

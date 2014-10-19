@@ -25,7 +25,7 @@ class GamesController < ApplicationController
       # After DefaultGameService creates game attributes; call the DefaultRulesEngineService to create the game attribute rules for them
       DefaultRulesEngineService.new(@game.id).populate_defaults
 
-      redirect_to game_path(@game.gm_code), notice: "Your game has been created"
+      redirect_to game_path(@game), notice: "Your game has been created"
     else
       render :new
     end

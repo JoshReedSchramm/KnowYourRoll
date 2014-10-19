@@ -2,7 +2,7 @@
   <% character_attribute = @character.character_attribute_matching_game_attribute(game_attribute) %>
   <% if character_attribute %>
     <%= form.fields_for :character_attributes, character_attribute do |ca| %>
-      <div class="form-group">
+      <div class="attribute-group">
         <% if field_label != nil %>
           <%= ca.label :value, field_label %>
         <% end %>

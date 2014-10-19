@@ -15,6 +15,7 @@
 //= require bootstrap.js
 //= require bootstrap-multiselect
 //= require isotope.min.js
+//= intro.js
 //= require_tree .
 
 $(document).ready(function() {

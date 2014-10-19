@@ -1,0 +1,17 @@
+<div class="col-sm-4">
+  <div class="col-sm-12 ability_group" data-attribute-group-id="<%= ag.id %>">
+    <h4>
+      <span class="name"><%= ag.name %></span>
+
+      <%= link_to edit_game_attribute_group_path(game, ag.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do |l| %>
+        <%= image_tag("edit_button.svg", class:"info") %> 
+      <% end %>
+      <%= image_tag("add_button.svg", class:"info") %>
+    </h4>
+    <div class="attribute_list">
+      <% ag.game_attributes.each do |a| %>
+        <%= render partial: a.type.underscore, locals: { attribute:a } %>
+      <% end %>
+    </div>
+  </div>
+</div>

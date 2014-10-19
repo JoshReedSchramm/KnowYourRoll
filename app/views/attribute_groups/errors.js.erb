@@ -1,0 +1,1 @@
+$("#attribute_group_form_<%= @attribute_group.id %> .alert-danger").html("<%= @attribute_group.errors.full_messages.join(", ") %>").removeClass("hide");

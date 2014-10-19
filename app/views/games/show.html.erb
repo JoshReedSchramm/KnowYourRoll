@@ -15,25 +15,17 @@
     </div>
   </div>
   <div class="row">
-    <% @game.attribute_groups.each do |ag| %>
-    <div class="col-sm-4">
-      <div class="col-sm-12 ability_group">
-        <h4><%= ag.name %> <%= image_tag("edit_button.svg", class:"info") %> <%= image_tag("add_button.svg", class:"info") %></h4>
-        <div class="group_description"><%= ag.description %></div>
-        <% if ag.game_attributes.any? %>
-        <div class="attribute_list">
-          <% ag.game_attributes.each do |a| %>
-            <%= render partial: a.type.underscore, locals: { attribute:a } %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
+    <div id="attribute_groups">
+      <% @game.attribute_groups.each do |ag| %>
+        <%= render partial: "/games/attribute_group", locals: { game: @game, ag: ag } %>
+      <% end %>
     </div>
-    <% end %>
     <div class="col-sm-4 addgroup">
       <div class="col-sm-12 ability_group">
         <h4>Add group</h4>
-        <a id="addgroup" href="javascript:void(0)"><%= image_tag("add_button.svg") %></a>
+        <%= link_to new_game_attribute_group_path(@game), {:remote => true, 'id' => 'addgroup', 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do |l| %>
+          <%= image_tag("add_button.svg") %>
+        <% end %>
       </div>
     </div>
   </div>

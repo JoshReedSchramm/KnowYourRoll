@@ -1,46 +1,66 @@
 class AttributeGroupsController < ApplicationController
-  before_action :set_attribute_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_game
+  before_action :set_attribute_group, only: [:edit, :update, :destroy]
 
   def new
-    @attribute_group = AttributeGroup.new
-    @attribute_group.game_id = params[:game_id]
-    render :template => '/shared/attribute_modal', :layout => false
-  end
-
-  def create
-    @attribute_group = AttributeGroup.new(attribute_group_params)
-    @attribute_group.game_id = params[:game_id]
-
-    if @attribute_group.save
-      redirect_to game_path(@attribute_group.game), notice: "Group Created"
-    else
-
+    @attribute_group = @game.attribute_groups.new
+    respond_to do |format|
+      format.html 
+      format.js 
     end
   end
 
-  def show
+  def create
+    @attribute_group = @game.attribute_groups.new(attribute_group_params)
+
+    if @attribute_group.save
+      respond_to do |format|
+        format.html { redirect_to @attribute_group.game, notice: "#{@attribute_group.name} was created!" }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render :new }
+        format.js { render "errors" }
+      end
+    end
   end
 
   def edit
-    render :template => '/shared/attribute_modal', :layout => false
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
-    @attribute_group.update_attributes(attribute_group_params)
-    redirect_to :back, notice: "#{@attribute_group.name} was updated!"
+    if @attribute_group.update_attributes(attribute_group_params)
+      respond_to do |format|
+        format.html { redirect_to @attribute_group.game, notice: "#{@attribute_group.name} was updated!" }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit }
+        format.js { render "errors" }
+      end
+    end
   end
 
   def destroy
     @attribute_group.destroy
   end
-  private
 
+  private
     def set_attribute_group
-      @attribute_group = AttributeGroup.find(params[:id])
-      @game = Game.find(params[:game_id])
+      @attribute_group = @game.attribute_groups.find(params[:id])
     end
 
     def attribute_group_params
       params.require(:attribute_group).permit( :sequence, :name, :description, :game_id)
+    end
+
+    def set_game
+      @game = Game.find(params[:game_id])
     end
 end

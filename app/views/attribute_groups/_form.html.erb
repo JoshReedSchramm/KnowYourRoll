@@ -1,11 +1,14 @@
-<%= form_for [game, @attribute_group] do |f| %>
-	<div>
+<% remote ||= false %>
+
+<%= form_for [game, @attribute_group], remote: remote, html: { id: "attribute_group_form_#{@attribute_group.id}" } do |f| %>
+  <div class="alert alert-danger hide" role="alert"></div>
+	<div class="form-group">
 		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, class: "form-control" %>
 	</div>
-	<div>
+  <div class="form-group">
 		<%= f.label :description %>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, class: "form-control" %>
 	</div>
-	<%= f.submit %>
+	<%= f.submit class: "btn btn-default" %>
 <% end %>

@@ -41,7 +41,10 @@ class GameAttributesController < ApplicationController
 
   def update
     if @game_attribute.update_attributes(game_attribute_params)
-      render :nothing => true
+      respond_to do |format|
+        format.html { render nothing: true }
+        format.js
+      end
     else
       redirect_to :back
     end

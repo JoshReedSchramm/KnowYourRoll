@@ -1,4 +1,4 @@
-<div class="attribute_item">
+<div class="attribute_item" data-attribute-id="<%= attribute.id %>">
   <span class="attribute_name">
   	<%= link_to "#{attribute.name}", edit_game_game_attribute_path(params[:id], attribute), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </span>

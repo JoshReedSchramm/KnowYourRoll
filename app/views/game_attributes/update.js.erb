@@ -1,0 +1,1 @@
+updateAttribute("<%= @game_attribute.id %>", "<%= escape_javascript(render(partial: "/games/#{@game_attribute.type.underscore}", locals: { attribute:@game_attribute })) %>");

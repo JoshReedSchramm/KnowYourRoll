@@ -12,7 +12,7 @@
     <% @game.attribute_groups.each do |ag| %>
     <div class="col-sm-4">
       <div class="col-sm-12 ability_group">
-        <h4><%= ag.name %> (<%= ag.sequence %>) <%= image_tag("info_button.svg", class:"info") %></h4>
+        <h4><%= ag.name %> <%= image_tag("info_button.svg", class:"info") %></h4>
         <div class="group_description"><%= ag.description %></div>
         <% if ag.game_attributes.any? %>
         <div class="attribute_list">

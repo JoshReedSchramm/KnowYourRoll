@@ -18,7 +18,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-    // $('select[multiple]').multiselect();
+  $('[data-toggle=tooltip]').tooltip();
 });
 
 

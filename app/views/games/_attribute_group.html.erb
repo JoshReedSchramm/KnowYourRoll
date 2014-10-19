@@ -6,7 +6,7 @@
       <%= link_to edit_game_attribute_group_path(game, ag.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do |l| %>
         <%= image_tag("edit_button.svg", class:"info") %> 
       <% end %>
-      <%= image_tag("add_button.svg", class:"info") %>
+      <%= link_to image_tag("add_button.svg", class:"info"), new_game_game_attribute_path(@game.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "attribute_edit"}  %>
     </h4>
     <div class="attribute_list">
       <% ag.game_attributes.each do |a| %>

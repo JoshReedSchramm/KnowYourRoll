@@ -18,10 +18,13 @@ class GameAttributesController < ApplicationController
   def create
     @game_attribute = GameAttribute.new(game_attribute_params)
     @game_attribute.game_id = params[:game_id]
-      @game_attribute.attribute_group_id = @parent.id unless params[:attribute_group_id].blank?
-      @game_attribute.parent_id = @parent.id unless params[:game_attribute_id].blank?
+    @game_attribute.attribute_group_id = @parent.id unless params[:attribute_group_id].blank?
+    @game_attribute.parent_id = @parent.id unless params[:game_attribute_id].blank?
     if @game_attribute.save
-      redirect_to game_path(@game_attribute.game), notice: "Your game has been created"
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else
       
     end

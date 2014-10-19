@@ -1,0 +1,25 @@
+<%#=<div class="container">
+<%#=  <div class="row">
+<%#=    <div class="xs-col-12">
+<%#=      <%= form_for @lookup_value do |f| %>
+<%#=        <%= render partial: "/shared/errors", locals: { model: @lookup_value } %>
+<%#=        <div class="form-group">
+<%#=          <%= f.label :name, "Name of Look Up Value" %>
+<%#=         <%= f.text_field :name, class: "form-control" %>
+<%#=        </div>
+<%#=        <div><h1>Key/Value Look Up Rule Pairings</h1></div>
+<%#=        <% for x in 1..30 do %>
+<%#=          <div class="form-group">
+<%#=            <%= f.label :input_key, "Input Key" %>
+<%#=            <%= f.text_field :input_key, :value => x, class: "form-control" %>
+<%#=          </div>
+<%#=          <div class="form-group">
+<%#=            <%= f.label :output_value, "Output Value" %>
+<%#=            <%= f.text_field :output_value, class: "form-control" %>
+<%#=          </div>
+<%#=        <% end %>
+<%#=        <%#= f.submit class: "btn btn-default" %>
+<%#=      <% end %>
+<%#=    </div>
+<%#=  </div>
+<%#= </div>

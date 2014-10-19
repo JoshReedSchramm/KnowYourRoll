@@ -43,6 +43,7 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'acts_as_tree'
+gem 'devise'
 
 
 group :development, :test do

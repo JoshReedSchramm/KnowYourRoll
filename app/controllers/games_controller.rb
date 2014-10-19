@@ -7,7 +7,11 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
+      # Create Default Game Attributes
       DefaultGameService.new(@game.id).populate_defaults
+
+      # After DefaultGameService creates game attributes; call the DefaultRulesEngineService to create the game attribute rules for them
+      DefaultRulesEngineService.new(@game.id).populate_defaults
 
       redirect_to game_path(@game.gm_code), notice: "Your game has been created"
     else

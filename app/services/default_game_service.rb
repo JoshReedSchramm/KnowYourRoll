@@ -403,7 +403,7 @@ class DefaultGameService
     combat_group.game_attributes << at_spells
     at_spell_dc = DescriptiveAttribute.new(name: "Spell Save DC", description: "A character's DC to save against their spells", sequence: 1)
     at_spells.children << at_spell_dc
-    at_spell_attack = DescriptiveAttribute.new(name: "Spell Attak Bonus", description: "A character's spell attack bonus", sequence: 2)
+    at_spell_attack = DescriptiveAttribute.new(name: "Spell Attack Bonus", description: "A character's spell attack bonus", sequence: 2)
     at_spells.children << at_spell_attack
     at_cantrips = NumericAttribute.new(name: "Cantrips", description: "A character's available number of readied cantrip spells", min_number: 0, max_number: 5, sequence: 3)
     at_spells.children << at_cantrips

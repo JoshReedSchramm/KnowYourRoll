@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018203401) do
+ActiveRecord::Schema.define(version: 20141019013801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 20141018203401) do
     t.string   "name"
   end
 
+  create_table "game_attribute_rules", force: true do |t|
+    t.integer  "game_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "type"
+    t.integer  "affecting_game_attribute_id"
+    t.string   "affected_game_attribute_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "game_attributes", force: true do |t|
     t.string  "name"
     t.string  "abbreviation"
@@ -49,10 +60,10 @@ ActiveRecord::Schema.define(version: 20141018203401) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
-    t.integer "sequence",               default: 0
-    t.integer "parent_id"
     t.integer "group_sequence",         default: 0
     t.integer "attribute_group_id"
+    t.integer "sequence",               default: 0
+    t.integer "parent_id"
     t.integer "game_id"
     t.boolean "multi_line",             default: false
     t.boolean "allows_multiple_values", default: false
@@ -66,6 +77,14 @@ ActiveRecord::Schema.define(version: 20141018203401) do
     t.datetime "updated_at"
     t.string   "gm_code"
     t.integer  "creator_id"
+  end
+
+  create_table "lookup_values", force: true do |t|
+    t.integer  "game_attribute_rule_id"
+    t.string   "input_key"
+    t.string   "output_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

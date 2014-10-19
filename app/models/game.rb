@@ -6,7 +6,8 @@ class Game < ActiveRecord::Base
 
   has_many :game_attributes
   has_many :characters
-
+  has_many :game_attribute_rules
+  
   accepts_nested_attributes_for :creator
 
   before_create :set_gm_code

@@ -1,21 +1,22 @@
 <div class="container">
   <div class="row">
     <h2>Your Games</h2>
-      <% current_user.games.each do |game| %>
-        <div>
-          <h3>
-            <%= game.name %>
-          </h3>
-          <nav class='game_summary_nav'>
-            <ul class="nav nav-pills">
+    <% current_user.games.each do |game| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="game_list clearfix">
+            <h3><%= game.name %></h3>
+            <ul class="nav nav-pills pull-right">
               <li><%= link_to "Edit", game_path(game) %></li>
               <li><%= link_to "View Characters", game_characters_path(game) %></li>
-              <li><%= link_to "Create a Character", new_game_character_path(game) %></li>
             </ul>
-          </nav>
-          <p><%= game.description %></p>
+          </div>
+          <div class="small_label">
+              <%= game.description %>          
+          </div>
         </div>
-      <% end %>
-    </ul>
+      </div>
+    <% end %>
+    <%= link_to "Create Another Game", new_game_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>

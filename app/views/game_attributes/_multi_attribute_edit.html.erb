@@ -8,7 +8,7 @@
 <% if attribute.children.any? %>
   <ul>
     <% attribute.children.each do |a| %>
-      <%= render partial: "#{a.type.underscore}", locals: { game: game, attribute: a } %>
+      <%= render partial: "#{a.type.underscore}_edit", locals: { game: game, attribute: a } %>
     <% end %>
   </ul>
 <% end %>

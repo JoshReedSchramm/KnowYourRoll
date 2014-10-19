@@ -4,6 +4,7 @@ class AttributeGroupsController < ApplicationController
   def new
     @attribute_group = AttributeGroup.new
     @attribute_group.game_id = params[:game_id]
+    render :template => '/shared/attribute_modal', :layout => false
   end
 
   def create
@@ -21,6 +22,7 @@ class AttributeGroupsController < ApplicationController
   end
 
   def edit
+    render :template => '/shared/attribute_modal', :layout => false
   end
 
   def update

@@ -5,8 +5,12 @@ class GameAttributesController < ApplicationController
   def new
     @game_attribute = params[:type].constantize.new
     @game_attribute.game_id = params[:game_id]
-      @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
-      @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+    @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    respond_to do |format|
+      format.html
+      format.js
+    end
     rescue
       "not a valid type"
   end
@@ -27,8 +31,12 @@ class GameAttributesController < ApplicationController
   end
 
   def edit
-     @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
-     @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+    @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update

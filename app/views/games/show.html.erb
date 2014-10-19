@@ -7,7 +7,9 @@
         <%= link_to edit_game_path, remote: true, "data-toggle" => "modal", "data-target" => "#modal-window" do |l| %>
           <%= image_tag("edit_button.svg", class:"info", title:"Edit #{@game.name}", "data-toggle" => "tooltip", "data-placement" => "right") %>
         <% end %>
+        <%= link_to "Take a Tour", "#", class: "btn btn-primary tour-btn" %>
       </h1>
+      <span data-step="3" data-intro="These attributes are grouped together with other like attributes. You can edit, add, remove, or even remove these groups! Just click on the icons next to the group name to customize your game." data-position="right"></span>
     </div>
     <div class="col-sm-2 gamemeta">
       GM: <%= @game.creator.name %><br/>
@@ -24,6 +26,7 @@
         <%= render partial: "/games/attribute_group", locals: { game: @game, ag: ag } %>
       <% end %>
     </div>
+<span class="float: right;" data-step="4" data-intro="Inside these groups is where your game really lives. The attributes inside control what a player sees on their character sheet for your game. More than that, they can interact with each other to automatically change by rules you create! Click on the + in a group to add an attribute or click an attribute to edit one. When you add a new attribute, you'll find more information on the types and capabilities of each one."></span>
     <div class="col-sm-4 addgroup">
       <div class="col-sm-12 ability_group">
         <h4>Add group</h4>
@@ -32,6 +35,13 @@
         <% end %>
       </div>
     </div>
-  </div>
+</div>
   <div id="modal-window" class="modal fade bs-example-modal-lg attribute-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 </div>
+
+<script type="text/javascript">
+  $('.tour-btn').click(function (e) {
+    introJs().start();
+    e.preventDefault();
+});
+</script>

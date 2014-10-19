@@ -16,7 +16,9 @@
       Created: <%= @game.created_at.strftime("%m/%d/%Y") %>
     </div>
     <div class="col-sm-2">
-      <%= link_to "View Characters", game_characters_path(@game), class:"inline_nav_link" %>
+      <span data-step="5" data-intro="You can click here to look at the characters in your game. You can come add new characters or edit the attributes of an existing one. Inside you'll find a custom character sheet defined by attributes and rules you create. Your players can edit their characters as they play. So forget the pencils and paper, move your tabletop rpg to the 21st century!" data-position="right">
+        <%= link_to "View Characters", game_characters_path(@game), class:"inline_nav_link" %>
+      </span>
     </div>
   </div>
   <div class="row">

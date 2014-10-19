@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141019013801) do
-=======
 ActiveRecord::Schema.define(version: 20141019025748) do
->>>>>>> 8d493dcbc71508202561117229dc7830a563e9fa
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +60,10 @@ ActiveRecord::Schema.define(version: 20141019025748) do
     t.integer "min_number"
     t.integer "max_number"
     t.text    "description"
-    t.integer "group_sequence",         default: 0
-    t.integer "attribute_group_id"
     t.integer "sequence",               default: 0
     t.integer "parent_id"
+    t.integer "group_sequence",         default: 0
+    t.integer "attribute_group_id"
     t.integer "game_id"
     t.boolean "multi_line",             default: false
     t.boolean "allows_multiple_values", default: false

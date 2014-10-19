@@ -11,7 +11,7 @@ class AttributeGroupsController < ApplicationController
     @attribute_group.game_id = params[:game_id]
 
     if @attribute_group.save
-      redirect_to game_path(@attribute_group.game.gm_code), notice: "Group Created"
+      redirect_to game_path(@attribute_group.game), notice: "Group Created"
     else
 
     end
@@ -35,7 +35,7 @@ class AttributeGroupsController < ApplicationController
 
     def set_attribute_group
       @attribute_group = AttributeGroup.find(params[:id])
-      @game = Game.where(gm_code: params[:game_id]).first
+      @game = Game.find(params[:game_id])
     end
 
     def attribute_group_params

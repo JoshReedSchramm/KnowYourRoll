@@ -1,7 +1,19 @@
 <div id="header" class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <%= image_tag("logo_full.png", class:"logo_full", alt: "logo") %>
+    <div class="col-sm-4">
+      <%= link_to root_path do %>
+        <%= image_tag("logo_full.png", class:"logo_full", alt: "logo") %>
+      <% end %>
+    </div>
+    <div class="col-sm-8 pull-right">
+      <% if current_user %>
+        <span class='pull-right'>Signed In As: <%= link_to current_user.name, edit_user_registration_path(current_user)%> (<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>) - <%= link_to "Your Games", games_path %></span>
+      <% else %>
+        <div class='pull-right'>
+          <%= link_to "Sign Up", new_user_registration_path %> |
+          <%= link_to "Sign In", new_user_session_path %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

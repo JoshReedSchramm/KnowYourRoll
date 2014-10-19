@@ -1,15 +1,24 @@
 <div class="container main_content">
   <div class="row">
-    <div class="col-sm-8">
-      <img src="http://placehold.it/600x400">
+    <div class="col-sm-7">
+      <img src="http://placehold.it/600x400" class="img-responsive">
     </div>
-    <div class="col-sm-4">
-      <p>Mauris a viverra erat. Nunc sagittis pharetra placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed lectus neque. Donec posuere tristique sapien in dapibus. Integer volutpat justo nulla, finibus porttitor nulla vestibulum in. Sed ultricies, velit in feugiat faucibus, massa diam eleifend quam, in luctus quam leo eu purus. Phasellus condimentum consequat urna. Phasellus neque neque, tempus interdum nisl sed, auctor fermentum mauris. Aliquam eu nibh magna. Donec fermentum quam nunc, sit amet vulputate metus pretium ut. Maecenas tortor tortor, ultrices sit amet vulputate a, blandit quis nisi. Maecenas gravida finibus hendrerit.
-			</p>
-			<p>
-			Nunc sit amet tortor est. Suspendisse sit amet porttitor nisl. Ut quis dolor eu purus dictum ornare. Donec ac nibh vitae leo pellentesque accumsan. Pellentesque eget semper neque. Suspendisse convallis, velit at cursus fermentum, ligula lectus condimentum purus, eget dignissim sem arcu eget est. Phasellus vehicula pulvinar mi ac venenatis. Sed venenatis metus eget pellentesque tempus. Curabitur posuere odio id turpis fringilla, sit amet tempus metus ultrices.
-			</p>
-      <%= link_to "Create a Game", new_game_path, class: "btn btn-primary btn-lg" %>
+    <div class="col-sm-5">
+      <h1>Welcome Game Masters!</h1>
+      <p>
+        Are you a pen and paper adventurer? A builder of imaginary dungeons? Have you ever wanted to build your very own pen and paper RPG? Welcome to Know Your Roll, an online tabletop RPG creator.
+      </p>
+      <p>
+        Know Your Roll will guide you through the process of defining your own game. We'll start with figuring out what a player's character looks like. Then you'll invite your friends and they can start building their own characters.
+      </p>
+
+      <p>Coming Soon: Build your game rules, equipment, custom spells, abilities and monsters. Build a campaign and run custom games created by other game masters like you.</p>
+
+      <%= link_to "Create Your First Game", new_game_path, class: "btn btn-primary btn-lg" %>
+
+      <% unless current_user %>
+        <p><i>Are you already a KYR Game Master? <%= link_to "Log In to continue working on your game", new_user_session_path %></i></p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,16 +1,18 @@
-<%= form_for [game, @parent, attribute.becomes(GameAttribute)] do |f| %>
-	<%- f.object = attribute.becomes(attribute.class) %>
-	<div>
+<%= form_for [@game, @parent, @game_attribute.becomes(GameAttribute)], :remote => true, html: { id: "game-attribute-form-#{@game_attribute.id}", class: "form-inline" } do |f| %>
+	<%- f.object = @game_attribute.becomes(@game_attribute.class) %>
+	<div class="alert alert-danger hide" role="alert"></div>
+	<div class="form-group">
 		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, class: "form-control" %>
 	</div>
-	<div>
+	<div class="form-group">
 		<%= f.label :min_number, "Minimum" %>
-		<%= f.number_field :min_number %>
+		<%= f.number_field :min_number, class: "form-control" %>
 	</div>
-	<div>
+	<div class="form-group">
 		<%= f.label :max_number, "Maximum" %>
-		<%= f.number_field :max_number %>
-		<%= f.hidden_field :type, value: params[:type] %>
+		<%= f.number_field :max_number, class: "form-control" %>
 	</div>
+	<%= f.hidden_field :type, value: params[:type] %>
+	<%= f.submit "Create" , class: "btn btn-primary" %>
 <% end %>

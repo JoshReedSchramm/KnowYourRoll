@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:new, :create]
 
   def new
-    @game = current_user.games.new
+    @game = Game.new
     if current_user
       @game.creator = current_user
     else
@@ -11,7 +11,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = current_user.games.new(game_params)
+    @game = Game.new(game_params)
 
     if current_user
       @game.creator = current_user

@@ -1,0 +1,30 @@
+<div class="modal-dialog modal-lg edit-attribute">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4 class="modal-title" id="myLargeModalLabel">
+        Editing <%= @game.name %>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <%= form_for @game, remote: true do |f| %>
+              <%= render partial: "/shared/errors", locals: { model: @game } %>
+              <div class="form-group">
+                <%= f.label :name, "Name of Game" %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :description, "Description of Game" %>
+                <%= f.text_area :description, class: "form-control" %>
+              </div>
+              <%= f.submit class: "btn btn-primary btn-lg"  %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

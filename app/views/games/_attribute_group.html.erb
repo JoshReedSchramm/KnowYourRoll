@@ -3,7 +3,6 @@
     <h4>
       <span class="name" title="<%= ag.description %>" data-toggle="tooltip" data-placement="bottom"><%= ag.name %></span>
 
-
       <%= link_to edit_game_attribute_group_path(game, ag.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do |l| %>
         <%= image_tag("edit_button.svg", class:"info") %> 
       <% end %>

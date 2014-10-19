@@ -1,0 +1,3 @@
+$(".game-name").text("<%= @game.name %>");
+$(".game-description").attr('title', '<%= @game.description %>').tooltip('fixTitle');
+$("#modal-window").modal('hide');

@@ -39,6 +39,29 @@ class GamesController < ApplicationController
     @attributes = GameAttribute.all
   end
 
+  def edit
+    @game = current_user.games.find(params[:id])
+    respond_to do |format|
+      format.html 
+      format.js 
+    end
+  end
+
+  def update
+    @game = current_user.games.find(params[:id])
+    if @game.update_attributes(game_params)
+      respond_to do |format|
+        format.html { redirect_to @game, notice: "Updated Game" }
+        format.js 
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit }
+        format.js { render "errors" }
+      end
+    end
+  end
+
   private
     def game_params
       params.require(:game).permit(:name, :description, :creator_attributes => [:name, :email])

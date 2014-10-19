@@ -2,8 +2,11 @@
   <div class="row gameheader">
     <div class="col-sm-8">
       <h1>
-        <%= @game.name %>
-        <%= image_tag("info_button.svg", class:"info", title:"#{@game.description}", "data-toggle" => "tooltip", "data-placement" => "right") %>
+        <span class='game-name'><%= @game.name %></span>
+        <%= image_tag("info_button.svg", class:"info game-description", title:"#{@game.description}", "data-toggle" => "tooltip", "data-placement" => "right") %>
+        <%= link_to edit_game_path, remote: true, "data-toggle" => "modal", "data-target" => "#modal-window" do |l| %>
+          <%= image_tag("edit_button.svg", class:"info", title:"Edit #{@game.name}", "data-toggle" => "tooltip", "data-placement" => "right") %>
+        <% end %>
       </h1>
     </div>
     <div class="col-sm-2 gamemeta">

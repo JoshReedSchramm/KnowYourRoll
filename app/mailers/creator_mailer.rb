@@ -1,5 +1,5 @@
 class CreatorMailer < ActionMailer::Base
-  default from: "god@knowyourroll.com"
+  default from: 'game-master@know-your-roll.r14.railsrumble.com'
 
   def new_game_notification(game)
     @game = game

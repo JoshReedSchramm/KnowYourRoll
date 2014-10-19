@@ -1,11 +1,17 @@
 <div class="container" id="edit-game-screen">
   <div class="row gameheader">
     <div class="col-sm-8">
-      <h1><%= @game.name %> <%= image_tag("info_button.svg", class:"info", alt:"#{@game.description}") %></h1>
+      <h1>
+        <%= @game.name %>
+        <%= image_tag("info_button.svg", class:"info", alt:"#{@game.description}") %>
+      </h1>
     </div>
-    <div class="col-sm-4 gamemeta">
+    <div class="col-sm-2 gamemeta">
       GM: <%= @game.creator.name %><br/>
       Created: <%= @game.created_at.strftime("%m/%d/%Y") %>
+    </div>
+    <div class="col-sm-2">
+      <%= link_to "View Characters", game_characters_path(@game), class:"inline_nav_link" %>
     </div>
   </div>
   <div class="row">

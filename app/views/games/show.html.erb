@@ -9,16 +9,10 @@
     </div>
   </div>
   <div class="row">
-    <ul class="nav nav-pills">
-      <li><%= link_to "View Characters", game_characters_path(@game) %></li>
-      <li><%= link_to "Create a Character", new_game_character_path(@game) %></li>
-    </ul>
-  </div>
-  <div class="row">
     <% @game.attribute_groups.each do |ag| %>
     <div class="col-sm-4">
       <div class="col-sm-12 ability_group">
-        <h4><%= ag.name %> <%= image_tag("info_button.svg", class:"info") %></h4>
+        <h4><%= ag.name %> <%= image_tag("edit_button.svg", class:"info") %> <%= image_tag("add_button.svg", class:"info") %></h4>
         <div class="group_description"><%= ag.description %></div>
         <% if ag.game_attributes.any? %>
         <div class="attribute_list">
@@ -33,14 +27,9 @@
     <div class="col-sm-4 addgroup">
       <div class="col-sm-12 ability_group">
         <h4>Add group</h4>
-        <a id="addgroup" href="javascript:void(0)"><%= image_tag("info_button.svg") %></a>
+        <a id="addgroup" href="javascript:void(0)"><%= image_tag("add_button.svg") %></a>
       </div>
     </div>
   </div>
-
-  <div id="editattribute_form">
-  </div>
-  <div id="overlay">&nbsp;</div>
-  <div id="modal-window" class="modal fade bs-example-modal-lg attribute-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  </div>
+  <div id="modal-window" class="modal fade bs-example-modal-lg attribute-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 </div>

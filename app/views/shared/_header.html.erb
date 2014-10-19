@@ -5,7 +5,13 @@
         <%= image_tag("logo_full.png", class:"logo_full", alt: "logo") %>
       <% end %>
     </div>
-    <div class="col-sm-8 pull-right">
+    <div class="row">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Setup Game", game_path(@game) %></li>
+        <li><%= link_to "View Characters", game_characters_path(@game) %></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 pull-right header_info">
       <% if current_user %>
         <span class='pull-right'>Signed In As: <%= link_to current_user.name, edit_user_registration_path(current_user)%> (<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>) - <%= link_to "Your Games", games_path %></span>
       <% else %>

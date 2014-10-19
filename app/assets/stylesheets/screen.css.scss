@@ -35,8 +35,21 @@ label{
   color:$red;
 }
 
-h5 {
+.header_info {
+  color:$almostblack;
+  font-size:.8em;
+}
+
+a {
   color:$red;
+}
+
+a:hover {
+  color:$red;
+}
+
+h5 {
+  color:#999;
 }
 
 #header {

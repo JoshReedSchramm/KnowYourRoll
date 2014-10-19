@@ -1,18 +1,32 @@
-<h1>Create your Character</h1>
-
-<%= form_for [@game, @character] do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= render partial: "/shared/field_errors", locals: { model: @character, field: :name } %>
-  </div>
-  <% @game.attribute_groups.each do |ag| %>
-    <fieldset>
-      <legend><%= ag.name %></legend>
-      <% ag.game_attributes.each do |ga| %>
-        <%= render partial: "/games/characters/form_partials/#{ga.class.to_s.underscore}", locals: { game_attribute: ga, field_label: ga.name, form: f, character: @character } %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Create your Character</h1>
+      <%= form_for [@game, @character] do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= render partial: "/shared/field_errors", locals: { model: @character, field: :name } %>
+        </div>
+        <% @game.attribute_groups.each do |ag| %>
+        <div class="row">
+          <div class="col-sm-6 cs_ability_group">
+            <h4><%= ag.name %></h4>
+            <% ag.game_attributes.each do |ga| %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h5><%= ga.name %></h5>
+                </div>
+                <div class="col-sm-8">
+                  <%= render partial: "/games/characters/form_partials/#{ga.class.to_s.underscore}", locals: { game_attribute: ga, parent_label: ga.name, field_label: nil, form: f, character: @character } %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <%= f.submit "Save Character", class: "btn btn-default" %>
       <% end %>
-    </fieldset>
-  <% end %>
-  <%= f.submit "Save Character", class: "btn btn-default" %>
-<% end %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,9 @@
   <% if character_attribute %>
     <%= form.fields_for :character_attributes, character_attribute do |ca| %>
       <div class="form-group">
-        <%= ca.label :value, field_label %>
+        <% if field_label != nil %>
+          <%= ca.label :value, field_label %>
+        <% end %>
         <%= ca.hidden_field :game_attribute_id %>
         <% if game_attribute.allows_multiple_values %>
           <%= ca.select :value, game_attribute.options.collect{|o|[o.name, o.id]}, { include_blank: false }, { multiple: 'multiple' }%>
@@ -18,5 +20,5 @@
 <% end %>
 
 <% game_attribute.container_elements.each do |element| %>
-  <%= render partial: "/games/characters/form_partials/#{element.class.to_s.underscore}", locals: { game_attribute: element, field_label: element.name, form: form, character: character } %>
+  <%= render partial: "/games/characters/form_partials/#{element.class.to_s.underscore}", locals: { game_attribute: element, parent_label: parent_label, field_label: element.name, form: form, character: character } %>
 <% end %>

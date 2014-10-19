@@ -146,7 +146,7 @@ class DefaultGameService
     at_passive_perception = NumericAttribute.new(name: "Passive Perception", description: "A character's Passive Perception skill level", min_number: -10, max_number: 20, group_sequence: 27)
     skills_group.game_attributes << at_passive_perception
 
-    at_languages = MultiAttribute.new(name: "Languages", description: "The languages that a character can speak and understand", group_sequence: 28, allows_multiple_values: true)
+    at_languages = MultiAttribute.new(name: "Languages", description: "The languages that a character can speak and understand", group_sequence: 28, allows_multiple_values: true, container: false)
     skills_group.game_attributes << at_languages
     at_common = DescriptiveAttribute.new(name: "Common", sequence: 1)
     at_languages.children << at_common
@@ -200,154 +200,154 @@ class DefaultGameService
     at_death_successes = NumericAttribute.new(name: "Successes", description: "Current count of successful death saving throws by a character", min_number: 0, max_number: 3, sequence: 2)
     at_death_saves.children << at_death_successes
 
-    at_weapons = MultiAttribute.new(name: "Weapons", description: "A character's arsenal of weapondry", group_sequence: 7, allows_multiple_values: true)
-    combat_group.game_attributes << at_weapons
-
-    at_melee = MultiAttribute.new(name: "Melee Weapon", description: "A character's current melee weapon", sequence: 1)
-    at_weapons.children << at_melee
-    at_melee_attack_bonus = DescriptiveAttribute.new(name: "Melee Weapon Attack Bonus", sequence: 1)
-    at_melee.children << at_melee_attack_bonus
-    at_simple_melee_weapons = MultiAttribute.new(name: "Simple Melee Weapons", description: "Available simple melee weapons for a character", sequence: 2)
-    at_melee.children << at_simple_melee_weapons
-    
-    at_club = MultiAttribute.new(name: "Club", sequence: 1)
-    at_simple_melee_weapons.children << at_club
-    at_club_damage = NumericAttribute.new(name: "Club Damage", description: "Amount of damage the club weapon can deal", min_number: 1, max_number: 4, sequence: 1)
-    at_club.children << at_club_damage
-    at_club_damage_type = DescriptiveAttribute.new(name: "Club Damage Type", description: "Type of damage the club weapon will deal", sequence: 2)
-    at_club.children << at_club_damage_type
-    at_club_properties = DescriptiveAttribute.new(name: "Club Properties", description: "The various special properties of the club weapon", sequence: 3)
-    at_club.children << at_club_properties
-    
-    at_dagger = MultiAttribute.new(name: "Dagger", sequence: 2)
-    at_simple_melee_weapons.children << at_dagger
-    at_dagger_damage = NumericAttribute.new(name: "Dagger Damage", description: "Amount of damage the dagger weapon can deal", min_number: 1, max_number: 4, sequence: 1)
-    at_dagger.children << at_dagger_damage
-    at_dagger_damage_type = DescriptiveAttribute.new(name: "Dagger Damage Type", description: "Type of damage the dagger weapon will deal", sequence: 2)
-    at_dagger.children << at_dagger_damage_type
-    at_dagger_properties = DescriptiveAttribute.new(name: "Dagger Properties", description: "The various special properties of the dagger weapon", sequence: 3)
-    at_dagger.children << at_dagger_properties
-    
-    at_mace = MultiAttribute.new(name: "Mace", sequence: 3)
-    at_simple_melee_weapons.children << at_mace
-    at_mace_damage = NumericAttribute.new(name: "Mace Damage", description: "Amount of damage the mace weapon can deal", min_number: 1, max_number: 6, sequence: 1)
-    at_mace.children << at_mace_damage
-    at_mace_damage_type = DescriptiveAttribute.new(name: "Mace Damage Type", description: "Type of damage the mace weapon will deal", sequence: 2)
-    at_mace.children << at_mace_damage_type
-    at_mace_properties = DescriptiveAttribute.new(name: "Mace Properties", description: "The various special properties of the mace weapon", sequence: 3)
-    at_mace.children << at_mace_properties
-    
-    at_quarterstaff = MultiAttribute.new(name: "Quarterstaff", sequence: 4)
-    at_simple_melee_weapons.children << at_quarterstaff
-    at_quarterstaff_damage = NumericAttribute.new(name: "Quarterstaff Damage", description: "Amount of damage the quarterstaff weapon can deal", min_number: 1, max_number: 6, sequence: 1)
-    at_quarterstaff.children << at_quarterstaff_damage
-    at_quarterstaff_damage_type = DescriptiveAttribute.new(name: "Quarterstaff Damage Type", description: "Type of damage the quarterstaff weapon will deal", sequence: 2)
-    at_quarterstaff.children << at_quarterstaff_damage_type
-    at_quarterstaff_properties = DescriptiveAttribute.new(name: "Quarterstaff Properties", description: "The various special properties of the quarterstaff weapon", sequence: 3)
-    at_quarterstaff.children << at_quarterstaff_properties
-    
-    at_unarmed = MultiAttribute.new(name: "Unarmed", sequence: 5)
-    at_simple_melee_weapons.children << at_unarmed
-    at_unarmed_damage = NumericAttribute.new(name: "Unarmed Damage", description: "Amount of damage the unarmed weapon can deal", min_number: 1, max_number: 1, sequence: 1)
-    at_unarmed.children << at_unarmed_damage
-    at_unarmed_damage_type = DescriptiveAttribute.new(name: "Unarmed Damage Type", description: "Type of damage the unarmed weapon will deal", sequence: 2)
-    at_unarmed.children << at_unarmed_damage_type
-    at_unarmed_properties = DescriptiveAttribute.new(name: "Unarmed Properties", description: "The various special properties of the unarmed weapon", sequence: 3)
-    at_unarmed.children << at_unarmed_properties
-    
-    at_martial_melee_weapons = MultiAttribute.new(name: "Martial Melee Weapons", description: "Available martial melee weapons for a character", sequence: 2)
-    at_melee.children << at_martial_melee_weapons
-    
-    at_greataxe = MultiAttribute.new(name: "Greataxe", sequence: 1)
-    at_martial_melee_weapons.children << at_greataxe
-    at_greataxe_damage = NumericAttribute.new(name: "Greataxe Damage", description: "Amount of damage the greataxe weapon can deal", min_number: 1, max_number: 12, sequence: 1)
-    at_greataxe.children << at_greataxe_damage
-    at_greataxe_damage_type = DescriptiveAttribute.new(name: "Greataxe Damage Type", description: "Type of damage the greataxe weapon will deal", sequence: 2)
-    at_greataxe.children << at_greataxe_damage_type
-    at_greataxe_properties = DescriptiveAttribute.new(name: "Greataxe Properties", description: "The various special properties of the greataxe weapon", sequence: 3)
-    at_greataxe.children << at_greataxe_properties
-    
-    at_longsword = MultiAttribute.new(name: "Longsword", sequence: 2)
-    at_martial_melee_weapons.children << at_longsword
-    at_longsword_damage = NumericAttribute.new(name: "Longsword Damage", description: "Amount of damage the longsword weapon can deal", min_number: 1, max_number: 8, sequence: 1)
-    at_longsword.children << at_longsword_damage
-    at_longsword_damage_type = DescriptiveAttribute.new(name: "Longsword Damage Type", description: "Type of damage the longsword weapon will deal", sequence: 2)
-    at_longsword.children << at_longsword_damage_type
-    at_longsword_properties = DescriptiveAttribute.new(name: "Longsword Properties", description: "The various special properties of the longsword weapon", sequence: 3)
-    at_longsword.children << at_longsword_properties
-    
-    at_rapier = MultiAttribute.new(name: "Rapier", sequence: 3)
-    at_martial_melee_weapons.children << at_rapier
-    at_rapier_damage = NumericAttribute.new(name: "Rapier Damage", description: "Amount of damage the rapier weapon can deal", min_number: 1, max_number: 8, sequence: 1)
-    at_rapier.children << at_rapier_damage
-    at_rapier_damage_type = DescriptiveAttribute.new(name: "Rapier Damage Type", description: "Type of damage the rapier weapon will deal", sequence: 2)
-    at_rapier.children << at_rapier_damage_type
-    at_rapier_properties = DescriptiveAttribute.new(name: "Rapier Properties", description: "The various special properties of the rapier weapon", sequence: 3)
-    at_rapier.children << at_rapier_properties
-    
-    at_shortsword = MultiAttribute.new(name: "Shortsword", sequence: 4)
-    at_martial_melee_weapons.children << at_shortsword
-    at_shortsword_damage = NumericAttribute.new(name: "Shortsword Damage", description: "Amount of damage the shortsword weapon can deal", min_number: 1, max_number: 6, sequence: 1)
-    at_shortsword.children << at_shortsword_damage
-    at_shortsword_damage_type = DescriptiveAttribute.new(name: "Shortsword Damage Type", description: "Type of damage the shortsword weapon will deal", sequence: 2)
-    at_shortsword.children << at_shortsword_damage_type
-    at_shortsword_properties = DescriptiveAttribute.new(name: "Shortsword Properties", description: "The various special properties of the shortsword weapon", sequence: 3)
-    at_shortsword.children << at_shortsword_properties
-
-    at_warhammer = MultiAttribute.new(name: "Warhammer", sequence: 5)
-    at_martial_melee_weapons.children << at_warhammer
-    at_warhammer_damage = NumericAttribute.new(name: "Warhammer Damage", description: "Amount of damage the warhammer weapon can deal", min_number: 1, max_number: 8, sequence: 1)
-    at_warhammer.children << at_warhammer_damage
-    at_warhammer_damage_type = DescriptiveAttribute.new(name: "Warhammer Damage Type", description: "Type of damage the warhammer weapon will deal", sequence: 2)
-    at_warhammer.children << at_warhammer_damage_type
-    at_warhammer_properties = DescriptiveAttribute.new(name: "Warhammer Properties", description: "The various special properties of the warhammer weapon", sequence: 3)
-    at_warhammer.children << at_warhammer_properties
-
-    at_ranged = MultiAttribute.new(name: "Ranged Weapon", description: "A character's current ranged weapon", sequence: 2)
-    at_weapons.children << at_ranged
-    at_ranged_attack_bonus = DescriptiveAttribute.new(name: "Ranged Weapon Attack Bonus", sequence: 1)
-    at_ranged.children << at_ranged_attack_bonus
-    at_simple_ranged_weapons = MultiAttribute.new(name: "Simple Ranged Weapons", description: "Available simple ranged weapons for a character", sequence: 2)
-    at_ranged.children << at_simple_ranged_weapons
-
-    at_light_crossbow = MultiAttribute.new(name: "Light Crossbow", sequence: 1)
-    at_simple_ranged_weapons.children << at_light_crossbow
-    at_light_crossbow_damage = NumericAttribute.new(name: "Light Crossbow Damage", description: "Amount of damage the light crossbow weapon can deal", min_number: 1, max_number: 8, sequence: 1)
-    at_light_crossbow.children << at_light_crossbow_damage
-    at_light_crossbow_damage_type = DescriptiveAttribute.new(name: "Light Crossbow Damage Type", description: "Type of damage the light crossbow weapon will deal", sequence: 2)
-    at_light_crossbow.children << at_light_crossbow_damage_type
-    at_light_crossbow_properties = DescriptiveAttribute.new(name: "Light Crossbow Properties", description: "The various special properties of the light crossbow weapon", sequence: 3)
-    at_light_crossbow.children << at_light_crossbow_properties
-    
-    at_shortbow = MultiAttribute.new(name: "Shortbow", sequence: 2)
-    at_simple_ranged_weapons.children << at_shortbow
-    at_shortbow_damage = NumericAttribute.new(name: "Shortbow Damage", description: "Amount of damage the shortbow weapon can deal", min_number: 1, max_number: 6, sequence: 1)
-    at_shortbow.children << at_shortbow_damage
-    at_shortbow_damage_type = DescriptiveAttribute.new(name: "Shortbow Damage Type", description: "Type of damage the shortbow weapon will deal", sequence: 2)
-    at_shortbow.children << at_shortbow_damage_type
-    at_shortbow_properties = DescriptiveAttribute.new(name: "Shortbow Properties", description: "The various special properties of the shortbow weapon", sequence: 3)
-    at_shortbow.children << at_shortbow_properties
-    
-    at_martial_ranged_weapons = MultiAttribute.new(name: "Martial Ranged Weapons", description: "Available martial ranged weapons for a character", sequence: 2)
-    at_ranged.children << at_martial_ranged_weapons
-
-    at_heavy_crossbow = MultiAttribute.new(name: "Heavy Crossbow", sequence: 2)
-    at_martial_ranged_weapons.children << at_heavy_crossbow
-    at_heavy_crossbow_damage = NumericAttribute.new(name: "Heavy Crossbow Damage", description: "Amount of damage the heavy crossbow weapon can deal", min_number: 1, max_number: 10, sequence: 1)
-    at_heavy_crossbow.children << at_heavy_crossbow_damage
-    at_heavy_crossbow_damage_type = DescriptiveAttribute.new(name: "Heavy Crossbow Damage Type", description: "Type of damage the heavy crossbow weapon will deal", sequence: 2)
-    at_heavy_crossbow.children << at_heavy_crossbow_damage_type
-    at_heavy_crossbow_properties = DescriptiveAttribute.new(name: "Heavy Crossbow Properties", description: "The various special properties of the heavy crossbow weapon", sequence: 3)
-    at_heavy_crossbow.children << at_heavy_crossbow_properties
-    
-    at_longbow = MultiAttribute.new(name: "Longbow", sequence: 3)
-    at_martial_ranged_weapons.children << at_longbow
-    at_longbow_damage = NumericAttribute.new(name: "Longbow Damage", description: "Amount of damage the longbow weapon can deal", min_number: 1, max_number: 8, sequence: 1)
-    at_longbow.children << at_longbow_damage
-    at_longbow_damage_type = DescriptiveAttribute.new(name: "Longbow Damage Type", description: "Type of damage the longbow weapon will deal", sequence: 2)
-    at_longbow.children << at_longbow_damage_type
-    at_longbow_properties = DescriptiveAttribute.new(name: "Longbow Properties", description: "The various special properties of the longbow weapon", sequence: 3)
-    at_longbow.children << at_longbow_properties
+    # at_weapons = MultiAttribute.new(name: "Weapons", description: "A character's arsenal of weapondry", group_sequence: 7, allows_multiple_values: true)
+    # combat_group.game_attributes << at_weapons
+    #
+    # at_melee = MultiAttribute.new(name: "Melee Weapon", description: "A character's current melee weapon", sequence: 1)
+    # at_weapons.children << at_melee
+    # at_melee_attack_bonus = DescriptiveAttribute.new(name: "Melee Weapon Attack Bonus", sequence: 1)
+    # at_melee.children << at_melee_attack_bonus
+    # at_simple_melee_weapons = MultiAttribute.new(name: "Simple Melee Weapons", description: "Available simple melee weapons for a character", sequence: 2)
+    # at_melee.children << at_simple_melee_weapons
+    #
+    # at_club = MultiAttribute.new(name: "Club", sequence: 1)
+    # at_simple_melee_weapons.children << at_club
+    # at_club_damage = NumericAttribute.new(name: "Club Damage", description: "Amount of damage the club weapon can deal", min_number: 1, max_number: 4, sequence: 1)
+    # at_club.children << at_club_damage
+    # at_club_damage_type = DescriptiveAttribute.new(name: "Club Damage Type", description: "Type of damage the club weapon will deal", sequence: 2)
+    # at_club.children << at_club_damage_type
+    # at_club_properties = DescriptiveAttribute.new(name: "Club Properties", description: "The various special properties of the club weapon", sequence: 3)
+    # at_club.children << at_club_properties
+    #
+    # at_dagger = MultiAttribute.new(name: "Dagger", sequence: 2)
+    # at_simple_melee_weapons.children << at_dagger
+    # at_dagger_damage = NumericAttribute.new(name: "Dagger Damage", description: "Amount of damage the dagger weapon can deal", min_number: 1, max_number: 4, sequence: 1)
+    # at_dagger.children << at_dagger_damage
+    # at_dagger_damage_type = DescriptiveAttribute.new(name: "Dagger Damage Type", description: "Type of damage the dagger weapon will deal", sequence: 2)
+    # at_dagger.children << at_dagger_damage_type
+    # at_dagger_properties = DescriptiveAttribute.new(name: "Dagger Properties", description: "The various special properties of the dagger weapon", sequence: 3)
+    # at_dagger.children << at_dagger_properties
+    #
+    # at_mace = MultiAttribute.new(name: "Mace", sequence: 3)
+    # at_simple_melee_weapons.children << at_mace
+    # at_mace_damage = NumericAttribute.new(name: "Mace Damage", description: "Amount of damage the mace weapon can deal", min_number: 1, max_number: 6, sequence: 1)
+    # at_mace.children << at_mace_damage
+    # at_mace_damage_type = DescriptiveAttribute.new(name: "Mace Damage Type", description: "Type of damage the mace weapon will deal", sequence: 2)
+    # at_mace.children << at_mace_damage_type
+    # at_mace_properties = DescriptiveAttribute.new(name: "Mace Properties", description: "The various special properties of the mace weapon", sequence: 3)
+    # at_mace.children << at_mace_properties
+    #
+    # at_quarterstaff = MultiAttribute.new(name: "Quarterstaff", sequence: 4)
+    # at_simple_melee_weapons.children << at_quarterstaff
+    # at_quarterstaff_damage = NumericAttribute.new(name: "Quarterstaff Damage", description: "Amount of damage the quarterstaff weapon can deal", min_number: 1, max_number: 6, sequence: 1)
+    # at_quarterstaff.children << at_quarterstaff_damage
+    # at_quarterstaff_damage_type = DescriptiveAttribute.new(name: "Quarterstaff Damage Type", description: "Type of damage the quarterstaff weapon will deal", sequence: 2)
+    # at_quarterstaff.children << at_quarterstaff_damage_type
+    # at_quarterstaff_properties = DescriptiveAttribute.new(name: "Quarterstaff Properties", description: "The various special properties of the quarterstaff weapon", sequence: 3)
+    # at_quarterstaff.children << at_quarterstaff_properties
+    #
+    # at_unarmed = MultiAttribute.new(name: "Unarmed", sequence: 5)
+    # at_simple_melee_weapons.children << at_unarmed
+    # at_unarmed_damage = NumericAttribute.new(name: "Unarmed Damage", description: "Amount of damage the unarmed weapon can deal", min_number: 1, max_number: 1, sequence: 1)
+    # at_unarmed.children << at_unarmed_damage
+    # at_unarmed_damage_type = DescriptiveAttribute.new(name: "Unarmed Damage Type", description: "Type of damage the unarmed weapon will deal", sequence: 2)
+    # at_unarmed.children << at_unarmed_damage_type
+    # at_unarmed_properties = DescriptiveAttribute.new(name: "Unarmed Properties", description: "The various special properties of the unarmed weapon", sequence: 3)
+    # at_unarmed.children << at_unarmed_properties
+    #
+    # at_martial_melee_weapons = MultiAttribute.new(name: "Martial Melee Weapons", description: "Available martial melee weapons for a character", sequence: 2)
+    # at_melee.children << at_martial_melee_weapons
+    #
+    # at_greataxe = MultiAttribute.new(name: "Greataxe", sequence: 1)
+    # at_martial_melee_weapons.children << at_greataxe
+    # at_greataxe_damage = NumericAttribute.new(name: "Greataxe Damage", description: "Amount of damage the greataxe weapon can deal", min_number: 1, max_number: 12, sequence: 1)
+    # at_greataxe.children << at_greataxe_damage
+    # at_greataxe_damage_type = DescriptiveAttribute.new(name: "Greataxe Damage Type", description: "Type of damage the greataxe weapon will deal", sequence: 2)
+    # at_greataxe.children << at_greataxe_damage_type
+    # at_greataxe_properties = DescriptiveAttribute.new(name: "Greataxe Properties", description: "The various special properties of the greataxe weapon", sequence: 3)
+    # at_greataxe.children << at_greataxe_properties
+    #
+    # at_longsword = MultiAttribute.new(name: "Longsword", sequence: 2)
+    # at_martial_melee_weapons.children << at_longsword
+    # at_longsword_damage = NumericAttribute.new(name: "Longsword Damage", description: "Amount of damage the longsword weapon can deal", min_number: 1, max_number: 8, sequence: 1)
+    # at_longsword.children << at_longsword_damage
+    # at_longsword_damage_type = DescriptiveAttribute.new(name: "Longsword Damage Type", description: "Type of damage the longsword weapon will deal", sequence: 2)
+    # at_longsword.children << at_longsword_damage_type
+    # at_longsword_properties = DescriptiveAttribute.new(name: "Longsword Properties", description: "The various special properties of the longsword weapon", sequence: 3)
+    # at_longsword.children << at_longsword_properties
+    #
+    # at_rapier = MultiAttribute.new(name: "Rapier", sequence: 3)
+    # at_martial_melee_weapons.children << at_rapier
+    # at_rapier_damage = NumericAttribute.new(name: "Rapier Damage", description: "Amount of damage the rapier weapon can deal", min_number: 1, max_number: 8, sequence: 1)
+    # at_rapier.children << at_rapier_damage
+    # at_rapier_damage_type = DescriptiveAttribute.new(name: "Rapier Damage Type", description: "Type of damage the rapier weapon will deal", sequence: 2)
+    # at_rapier.children << at_rapier_damage_type
+    # at_rapier_properties = DescriptiveAttribute.new(name: "Rapier Properties", description: "The various special properties of the rapier weapon", sequence: 3)
+    # at_rapier.children << at_rapier_properties
+    #
+    # at_shortsword = MultiAttribute.new(name: "Shortsword", sequence: 4)
+    # at_martial_melee_weapons.children << at_shortsword
+    # at_shortsword_damage = NumericAttribute.new(name: "Shortsword Damage", description: "Amount of damage the shortsword weapon can deal", min_number: 1, max_number: 6, sequence: 1)
+    # at_shortsword.children << at_shortsword_damage
+    # at_shortsword_damage_type = DescriptiveAttribute.new(name: "Shortsword Damage Type", description: "Type of damage the shortsword weapon will deal", sequence: 2)
+    # at_shortsword.children << at_shortsword_damage_type
+    # at_shortsword_properties = DescriptiveAttribute.new(name: "Shortsword Properties", description: "The various special properties of the shortsword weapon", sequence: 3)
+    # at_shortsword.children << at_shortsword_properties
+    #
+    # at_warhammer = MultiAttribute.new(name: "Warhammer", sequence: 5)
+    # at_martial_melee_weapons.children << at_warhammer
+    # at_warhammer_damage = NumericAttribute.new(name: "Warhammer Damage", description: "Amount of damage the warhammer weapon can deal", min_number: 1, max_number: 8, sequence: 1)
+    # at_warhammer.children << at_warhammer_damage
+    # at_warhammer_damage_type = DescriptiveAttribute.new(name: "Warhammer Damage Type", description: "Type of damage the warhammer weapon will deal", sequence: 2)
+    # at_warhammer.children << at_warhammer_damage_type
+    # at_warhammer_properties = DescriptiveAttribute.new(name: "Warhammer Properties", description: "The various special properties of the warhammer weapon", sequence: 3)
+    # at_warhammer.children << at_warhammer_properties
+    #
+    # at_ranged = MultiAttribute.new(name: "Ranged Weapon", description: "A character's current ranged weapon", sequence: 2)
+    # at_weapons.children << at_ranged
+    # at_ranged_attack_bonus = DescriptiveAttribute.new(name: "Ranged Weapon Attack Bonus", sequence: 1)
+    # at_ranged.children << at_ranged_attack_bonus
+    # at_simple_ranged_weapons = MultiAttribute.new(name: "Simple Ranged Weapons", description: "Available simple ranged weapons for a character", sequence: 2)
+    # at_ranged.children << at_simple_ranged_weapons
+    #
+    # at_light_crossbow = MultiAttribute.new(name: "Light Crossbow", sequence: 1)
+    # at_simple_ranged_weapons.children << at_light_crossbow
+    # at_light_crossbow_damage = NumericAttribute.new(name: "Light Crossbow Damage", description: "Amount of damage the light crossbow weapon can deal", min_number: 1, max_number: 8, sequence: 1)
+    # at_light_crossbow.children << at_light_crossbow_damage
+    # at_light_crossbow_damage_type = DescriptiveAttribute.new(name: "Light Crossbow Damage Type", description: "Type of damage the light crossbow weapon will deal", sequence: 2)
+    # at_light_crossbow.children << at_light_crossbow_damage_type
+    # at_light_crossbow_properties = DescriptiveAttribute.new(name: "Light Crossbow Properties", description: "The various special properties of the light crossbow weapon", sequence: 3)
+    # at_light_crossbow.children << at_light_crossbow_properties
+    #
+    # at_shortbow = MultiAttribute.new(name: "Shortbow", sequence: 2)
+    # at_simple_ranged_weapons.children << at_shortbow
+    # at_shortbow_damage = NumericAttribute.new(name: "Shortbow Damage", description: "Amount of damage the shortbow weapon can deal", min_number: 1, max_number: 6, sequence: 1)
+    # at_shortbow.children << at_shortbow_damage
+    # at_shortbow_damage_type = DescriptiveAttribute.new(name: "Shortbow Damage Type", description: "Type of damage the shortbow weapon will deal", sequence: 2)
+    # at_shortbow.children << at_shortbow_damage_type
+    # at_shortbow_properties = DescriptiveAttribute.new(name: "Shortbow Properties", description: "The various special properties of the shortbow weapon", sequence: 3)
+    # at_shortbow.children << at_shortbow_properties
+    #
+    # at_martial_ranged_weapons = MultiAttribute.new(name: "Martial Ranged Weapons", description: "Available martial ranged weapons for a character", sequence: 2)
+    # at_ranged.children << at_martial_ranged_weapons
+    #
+    # at_heavy_crossbow = MultiAttribute.new(name: "Heavy Crossbow", sequence: 2)
+    # at_martial_ranged_weapons.children << at_heavy_crossbow
+    # at_heavy_crossbow_damage = NumericAttribute.new(name: "Heavy Crossbow Damage", description: "Amount of damage the heavy crossbow weapon can deal", min_number: 1, max_number: 10, sequence: 1)
+    # at_heavy_crossbow.children << at_heavy_crossbow_damage
+    # at_heavy_crossbow_damage_type = DescriptiveAttribute.new(name: "Heavy Crossbow Damage Type", description: "Type of damage the heavy crossbow weapon will deal", sequence: 2)
+    # at_heavy_crossbow.children << at_heavy_crossbow_damage_type
+    # at_heavy_crossbow_properties = DescriptiveAttribute.new(name: "Heavy Crossbow Properties", description: "The various special properties of the heavy crossbow weapon", sequence: 3)
+    # at_heavy_crossbow.children << at_heavy_crossbow_properties
+    #
+    # at_longbow = MultiAttribute.new(name: "Longbow", sequence: 3)
+    # at_martial_ranged_weapons.children << at_longbow
+    # at_longbow_damage = NumericAttribute.new(name: "Longbow Damage", description: "Amount of damage the longbow weapon can deal", min_number: 1, max_number: 8, sequence: 1)
+    # at_longbow.children << at_longbow_damage
+    # at_longbow_damage_type = DescriptiveAttribute.new(name: "Longbow Damage Type", description: "Type of damage the longbow weapon will deal", sequence: 2)
+    # at_longbow.children << at_longbow_damage_type
+    # at_longbow_properties = DescriptiveAttribute.new(name: "Longbow Properties", description: "The various special properties of the longbow weapon", sequence: 3)
+    # at_longbow.children << at_longbow_properties
 
     # at_equipment = MultiAttribute.new(name: "Equipment", description: "A character's armor and equipped items", group_sequence: 8, allows_multiple_values: true)
     # combat_group.game_attributes << at_equipment
@@ -399,38 +399,38 @@ class DefaultGameService
     # at_heavy_shield = DescriptiveAttribute.new(name: "Heavy Shield", sequence: 2)
     # at_shield.children << at_heavy_shield
 
-    at_spells = MultiAttribute.new(name: "Spells", description: "A character's spell attacks and defenses", group_sequence: 9, allows_multiple_values: true)
-    combat_group.game_attributes << at_spells
-    at_spell_dc = DescriptiveAttribute.new(name: "Spell Save DC", description: "A character's DC to save against their spells", sequence: 1)
-    at_spells.children << at_spell_dc
-    at_spell_attack = DescriptiveAttribute.new(name: "Spell Attack Bonus", description: "A character's spell attack bonus", sequence: 2)
-    at_spells.children << at_spell_attack
-    at_cantrips = NumericAttribute.new(name: "Cantrips", description: "A character's available number of readied cantrip spells", min_number: 0, max_number: 5, sequence: 3)
-    at_spells.children << at_cantrips
-    at_spell_slots = MultiAttribute.new(name: "Spell Slots", description: "A character's available spell slots", sequence: 4)
-    at_spells.children << at_spell_slots
-    at_1st_level_spell_slots = NumericAttribute.new(name: "1st Level Spell Slots", description: "A character's available 1st level spell slots", min_number: 0, max_number: 4, sequence: 1)
-    at_spell_slots.children << at_1st_level_spell_slots
-    at_2nd_level_spell_slots = NumericAttribute.new(name: "2nd Level Spell Slots", description: "A character's available 2nd level spell slots", min_number: 0, max_number: 3, sequence: 2)
-    at_spell_slots.children << at_2nd_level_spell_slots
-    at_3rd_level_spell_slots = NumericAttribute.new(name: "3rd Level Spell Slots", description: "A character's available 3rd level spell slots", min_number: 0, max_number: 3, sequence: 3)
-    at_spell_slots.children << at_3rd_level_spell_slots
-    at_4th_level_spell_slots = NumericAttribute.new(name: "4th Level Spell Slots", description: "A character's available 4th level spell slots", min_number: 0, max_number: 3, sequence: 4)
-    at_spell_slots.children << at_4th_level_spell_slots
-    at_5th_level_spell_slots = NumericAttribute.new(name: "5th Level Spell Slots", description: "A character's available 5th level spell slots", min_number: 0, max_number: 3, sequence: 5)
-    at_spell_slots.children << at_5th_level_spell_slots
-    at_6th_level_spell_slots = NumericAttribute.new(name: "6th Level Spell Slots", description: "A character's available 6th level spell slots", min_number: 0, max_number: 2, sequence: 6)
-    at_spell_slots.children << at_6th_level_spell_slots
-    at_7th_level_spell_slots = NumericAttribute.new(name: "7th Level Spell Slots", description: "A character's available 7th level spell slots", min_number: 0, max_number: 2, sequence: 7)
-    at_spell_slots.children << at_7th_level_spell_slots
-    at_8th_level_spell_slots = NumericAttribute.new(name: "8th Level Spell Slots", description: "A character's available 8th level spell slots", min_number: 0, max_number: 1, sequence: 8)
-    at_spell_slots.children << at_8th_level_spell_slots
-    at_9th_level_spell_slots = NumericAttribute.new(name: "9th Level Spell Slots", description: "A character's available 9th level spell slots", min_number: 0, max_number: 1, sequence: 9)
-    at_spell_slots.children << at_9th_level_spell_slots
-    at_10th_level_spell_slots = NumericAttribute.new(name: "10th Level Spell Slots", description: "A character's available 10th level spell slots", min_number: 0, max_number: 1, sequence: 10)
-    at_spell_slots.children << at_10th_level_spell_slots
+    # at_spells = MultiAttribute.new(name: "Spells", description: "A character's spell attacks and defenses", group_sequence: 9, allows_multiple_values: true)
+    # combat_group.game_attributes << at_spells
+    # at_spell_dc = DescriptiveAttribute.new(name: "Spell Save DC", description: "A character's DC to save against their spells", sequence: 1)
+    # at_spells.children << at_spell_dc
+    # at_spell_attack = DescriptiveAttribute.new(name: "Spell Attack Bonus", description: "A character's spell attack bonus", sequence: 2)
+    # at_spells.children << at_spell_attack
+    # at_cantrips = NumericAttribute.new(name: "Cantrips", description: "A character's available number of readied cantrip spells", min_number: 0, max_number: 5, sequence: 3)
+    # at_spells.children << at_cantrips
+    # at_spell_slots = MultiAttribute.new(name: "Spell Slots", description: "A character's available spell slots", sequence: 4)
+    # at_spells.children << at_spell_slots
+    # at_1st_level_spell_slots = NumericAttribute.new(name: "1st Level Spell Slots", description: "A character's available 1st level spell slots", min_number: 0, max_number: 4, sequence: 1)
+    # at_spell_slots.children << at_1st_level_spell_slots
+    # at_2nd_level_spell_slots = NumericAttribute.new(name: "2nd Level Spell Slots", description: "A character's available 2nd level spell slots", min_number: 0, max_number: 3, sequence: 2)
+    # at_spell_slots.children << at_2nd_level_spell_slots
+    # at_3rd_level_spell_slots = NumericAttribute.new(name: "3rd Level Spell Slots", description: "A character's available 3rd level spell slots", min_number: 0, max_number: 3, sequence: 3)
+    # at_spell_slots.children << at_3rd_level_spell_slots
+    # at_4th_level_spell_slots = NumericAttribute.new(name: "4th Level Spell Slots", description: "A character's available 4th level spell slots", min_number: 0, max_number: 3, sequence: 4)
+    # at_spell_slots.children << at_4th_level_spell_slots
+    # at_5th_level_spell_slots = NumericAttribute.new(name: "5th Level Spell Slots", description: "A character's available 5th level spell slots", min_number: 0, max_number: 3, sequence: 5)
+    # at_spell_slots.children << at_5th_level_spell_slots
+    # at_6th_level_spell_slots = NumericAttribute.new(name: "6th Level Spell Slots", description: "A character's available 6th level spell slots", min_number: 0, max_number: 2, sequence: 6)
+    # at_spell_slots.children << at_6th_level_spell_slots
+    # at_7th_level_spell_slots = NumericAttribute.new(name: "7th Level Spell Slots", description: "A character's available 7th level spell slots", min_number: 0, max_number: 2, sequence: 7)
+    # at_spell_slots.children << at_7th_level_spell_slots
+    # at_8th_level_spell_slots = NumericAttribute.new(name: "8th Level Spell Slots", description: "A character's available 8th level spell slots", min_number: 0, max_number: 1, sequence: 8)
+    # at_spell_slots.children << at_8th_level_spell_slots
+    # at_9th_level_spell_slots = NumericAttribute.new(name: "9th Level Spell Slots", description: "A character's available 9th level spell slots", min_number: 0, max_number: 1, sequence: 9)
+    # at_spell_slots.children << at_9th_level_spell_slots
+    # at_10th_level_spell_slots = NumericAttribute.new(name: "10th Level Spell Slots", description: "A character's available 10th level spell slots", min_number: 0, max_number: 1, sequence: 10)
+    # at_spell_slots.children << at_10th_level_spell_slots
 
-    at_packs = MultiAttribute.new(name: "Equipment Packs", description: "Available equipment packs for a character", group_sequence: 10, allows_multiple_values: true)
+    at_packs = MultiAttribute.new(name: "Equipment Packs", description: "Available equipment packs for a character", group_sequence: 10, allows_multiple_values: true, container: false)
     combat_group.game_attributes << at_packs
     at_burglars_pack = DescriptiveAttribute.new(name: "Burglar's Pack", sequence: 1)
     at_packs.children << at_burglars_pack
@@ -447,7 +447,7 @@ class DefaultGameService
     at_scholars_pack = DescriptiveAttribute.new(name: "Scholar's Pack", sequence: 7)
     at_packs.children << at_scholars_pack
 
-    at_misc_items = MultiAttribute.new(name: "Misc Items", description: "A character's miscellaneous items", group_sequence: 11, allows_multiple_values: true)
+    at_misc_items = MultiAttribute.new(name: "Misc Items", description: "A character's miscellaneous items", group_sequence: 11, allows_multiple_values: true, container: false)
     combat_group.game_attributes << at_misc_items
     at_adventurers_kit = DescriptiveAttribute.new(name: "Adventurer's Kit", sequence: 0)
     at_misc_items.children << at_adventurers_kit
@@ -482,7 +482,7 @@ class DefaultGameService
     ###### Combat Group ######
 
     ###### Character Description Group ######
-    at_race = MultiAttribute.new(name: "Race", description: "The character's race", group_sequence: 2)
+    at_race = MultiAttribute.new(name: "Race", description: "The character's race", group_sequence: 2, container: false)
     character_description_group.game_attributes << at_race
     at_human = DescriptiveAttribute.new(name: "Human", sequence: 1)
     at_race.children << at_human
@@ -501,7 +501,7 @@ class DefaultGameService
     # at_mountain_dwarf = DescriptiveAttribute.new(name: "Mountain Dwarf", sequence: 2)
     # at_dwarf.children << at_mountain_dwarf
 
-    at_class = MultiAttribute.new(name: "Class", description: "The character's class", group_sequence: 3)
+    at_class = MultiAttribute.new(name: "Class", description: "The character's class", group_sequence: 3, container: false)
     character_description_group.game_attributes << at_class
     at_fighter = DescriptiveAttribute.new(name: "Fighter", sequence: 1)
     at_class.children << at_fighter
@@ -523,14 +523,14 @@ class DefaultGameService
     at_weight = NumericAttribute.new(name: "Weight", description: "A measurement of the weight of the character without equipment accounted for (in pounds)", min_number: 50, max_number: 800, group_sequence: 6)
     character_description_group.game_attributes << at_weight
     
-    at_gender = MultiAttribute.new(name: "Gender", description: "This is a character's gender in the game", group_sequence: 7)
+    at_gender = MultiAttribute.new(name: "Gender", description: "This is a character's gender in the game", group_sequence: 7, container: false)
     character_description_group.game_attributes << at_gender
     at_male = DescriptiveAttribute.new(name: "Male", sequence: 1)
     at_gender.children << at_male
     at_female = DescriptiveAttribute.new(name: "Female", sequence: 2)
     at_gender.children << at_female
 
-    at_vision = MultiAttribute.new(name: "Vision", description: "This is a character's vision type in the game", group_sequence: 8)
+    at_vision = MultiAttribute.new(name: "Vision", description: "This is a character's vision type in the game", group_sequence: 8, container: false)
     character_description_group.game_attributes << at_vision
     at_normal = DescriptiveAttribute.new(name: "Normal", description: "A character can see in bright and dim light within a given range", sequence: 1)
     at_vision.children << at_normal
@@ -550,7 +550,7 @@ class DefaultGameService
     at_next_level_experience_points = NumericAttribute.new(name: "Experience Points to Next Level", description: "The total number of hit points required by a character to reach the next level", min_number: 900, max_number: 100000, sequence: 3)
     at_experience.children << at_next_level_experience_points
 
-    at_alignments = MultiAttribute.new(name: "Alignments", description: "Available alignments for a character which is the character's general life disposition", group_sequence: 8)
+    at_alignments = MultiAttribute.new(name: "Alignments", description: "Available alignments for a character which is the character's general life disposition", group_sequence: 8, container: false)
     character_description_group.game_attributes << at_alignments
     at_lawful_good = DescriptiveAttribute.new(name: "Lawful Good", sequence: 1)
     at_alignments.children << at_lawful_good

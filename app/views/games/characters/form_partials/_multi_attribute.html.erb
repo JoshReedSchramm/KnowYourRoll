@@ -1,6 +1,6 @@
 <% if game_attribute.has_character_attribute %>
   <% character_attribute = @character.character_attribute_matching_game_attribute(game_attribute) %>
-  <% if character_attribute %>
+  <% unless game_attribute.container %>
     <%= form.fields_for :character_attributes, character_attribute do |ca| %>
       <div class="attribute-group">
         <% if field_label != nil %>

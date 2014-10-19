@@ -69,7 +69,7 @@ class GameAttributesController < ApplicationController
     end
 
     def game_attribute_params
-      params.require(:game_attribute).permit( :parent_id, :sequence, :group_sequence, :attribute_group_id, :name, :description, :abbreviation, :game_id, :min_number, :max_number, :type)
+      params.require(:game_attribute).permit( :parent_id, :sequence, :group_sequence, :attribute_group_id, :name, :description, :abbreviation, :game_id, :min_number, :max_number, :type, :container)
     end
 
     def set_parent

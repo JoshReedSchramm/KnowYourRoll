@@ -10,6 +10,7 @@
 		<%= f.text_area :description, class: "form-control" %>
 	</div>
 		<%= f.hidden_field :type, value: params[:type] %>
+		<%= f.hidden_field :container, value: params[:container] %>
 		<%= f.submit "Create" , class: "btn btn-primary" %>
 <% end %>
 <% if @game_attribute.children.any? %>

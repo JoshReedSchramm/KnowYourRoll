@@ -25,15 +25,14 @@
     <% end %>
   </div>
 <% end %>
-<% if attribute.options.any? %>
+<% if attribute.container %>
   <nav class='add_attribute'>
-    <%= link_to "Add a Option", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
+    <%= link_to "Add a Number", new_game_game_attribute_path(params[:game_id], type: "NumericAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %> |
+    <%= link_to "Add a Description", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </nav>
 <% else %>
   <nav class='add_attribute'>
-    <%= link_to "Add a Number", new_game_game_attribute_path(params[:game_id], type: "NumericAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %> |
-    <%= link_to "Add a Description", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %> |
-    <%= link_to "Add a Multi", new_game_game_attribute_path(params[:game_id], type: "MultiAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
+    <%= link_to "Add a Option", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </nav>
 <% end %>
 <%= render partial: "on_change_script", locals: { attribute: attribute } %>

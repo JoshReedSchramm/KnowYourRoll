@@ -3,11 +3,7 @@ class MultiAttribute < GameAttribute
   include CharacterAttributeBuilder
 
   def has_character_attribute
-    if options.any?
-      true
-    else
-      false
-    end
+    self.container == false
   end
 
   def options
@@ -15,7 +11,7 @@ class MultiAttribute < GameAttribute
   end
 
   def container_elements
-    self.children.where(type: [NumericAttribute.to_s])
+    self.children.where(type: [NumericAttribute.to_s, DescriptiveAttribute.to_s])
   end
 
   def build_character_attribute(character)

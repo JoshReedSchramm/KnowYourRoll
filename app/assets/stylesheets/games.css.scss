@@ -1,3 +1,14 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.edit-attribute {
+  margin-top: 10px;
+  .child-grouping {
+    margin-left: 10px;
+    form {
+      margin-bottom: 10px;
+      input { margin-right: 5px; }
+    }
+  }
+
+}

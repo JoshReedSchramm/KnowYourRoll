@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="edit-game-screen">
   <div class="row gameheader">
     <div class="col-sm-8">
       <h1><%= @game.name %> <%= image_tag("info_button.svg", class:"info", alt:"#{@game.description}") %></h1>
@@ -41,5 +41,6 @@
   <div id="editattribute_form">
   </div>
   <div id="overlay">&nbsp;</div>
+  <div id="modal-window" class="modal fade bs-example-modal-lg attribute-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  </div>
 </div>
-<div id="modal-window" class="modal fade col-sm-4 col-sm-offset-4 attribute-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>

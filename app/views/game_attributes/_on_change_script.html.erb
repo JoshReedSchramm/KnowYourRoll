@@ -1,0 +1,5 @@
+<script type="text/javascript">
+  $('input[type!=hidden],textarea,select', "form#game-attribute-form-<%= attribute.id %>").change(function(){
+    $(this).parents("form").submit();
+  });
+</script>

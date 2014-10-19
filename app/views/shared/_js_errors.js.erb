@@ -1,0 +1,3 @@
+<% @game_attribute.errors.messages.values.each do |err| %>
+  $("#game-attribute-form-<%= @game_attribute.id %> .alert-danger").html("<%= err.join(", ") %>").removeClass("hide");
+<% end %>

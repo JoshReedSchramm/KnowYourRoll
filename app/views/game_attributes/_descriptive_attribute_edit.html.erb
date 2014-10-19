@@ -1,11 +1,13 @@
-<%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true do |f| %>
+<%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true , html: { id: "game-attribute-form-#{attribute.id}"} do |f| %>
 	<%- f.object = attribute.becomes(attribute.class) %>
-	<div>
+  <div class="alert alert-danger hide" role="alert"></div>
+	<div class="form-group">
 		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, class: "form-control" %>
 	</div>
-	<div>
+	<div class="form-group">
 		<%= f.label :description, "Tooltip" %>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, class: "form-control" %>
 	</div>
 <% end %>
+<%= render partial: "on_change_script", locals: { attribute: attribute } %>

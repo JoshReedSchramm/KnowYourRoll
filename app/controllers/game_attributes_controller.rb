@@ -46,7 +46,10 @@ class GameAttributesController < ApplicationController
         format.js
       end
     else
-      redirect_to :back
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js { render partial: "/shared/js_errors", locals: { errors: @game_attribute.errors } }
+      end
     end
   end
 

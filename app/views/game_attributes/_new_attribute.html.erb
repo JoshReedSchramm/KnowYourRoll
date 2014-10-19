@@ -1,0 +1,16 @@
+<h4 style="text-align: center;">What Type would you like to Create?</h4>
+  <div class="col-xs-4">
+  	<h5>Number</h5>
+  	<p>This is a numeric attribute. These are numbers that can be changed automatically by rules you set. You can set a minimum and a maximum number. For example Hit Points. These are a number your player sets. Then you being the great GM you are, give them an item that gives them 10 HP. The 10 hp are automatically added to their Hit Points!</p>
+  	<%= link_to "I want a description!", "_numeric_attribute_new", locals: { game: @game, type: "NumericAttribute"} %>
+  </div>
+  <div class="col-xs-4">
+  	<h5>Description</h5>
+  	<p>This is a description field. This is a text attribute that a player can use to enter information. For example Appearence. With this field a player can enter information on their appearence and it will automatically show on their character sheet!</p>
+  	<%= link_to "I want a description!", "_numeric_attribute_new", locals: { game: @game, type: "NumericAttribute"} %>
+  </div>
+  <div class="col-xs-4">
+  	<h5>Multiple</h5>
+  	<p>This is an attribute that is used to hold other related attributes. As the GM you can assign other number or description attributes to this attribute. For example Race. Race is a multiple attribute that has a list of description attributes inside of it. The races Elf, Human, and Dwarf all belong to Race. This allows attributes that all relate to each other to be contained together on the character sheet!</p>
+  	<%= link_to "I want a multiple!", "_numeric_attribute_new", locals: { game: @game, type: "NumericAttribute"} %>
+</div>

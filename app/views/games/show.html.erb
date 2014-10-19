@@ -18,7 +18,7 @@
     <% @game.attribute_groups.each do |ag| %>
     <div class="col-sm-4">
       <div class="col-sm-12 ability_group">
-        <h4><%= ag.name %> <%= image_tag("edit_button.svg", class:"info") %> <%= image_tag("add_button.svg", class:"info") %></h4>
+        <h4><%= ag.name %> <%= image_tag("edit_button.svg", class:"info") %> <%= link_to image_tag("add_button.svg", class:"info"), new_game_game_attribute_path(@game.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "attribute_edit"}  %></h4>
         <div class="group_description"><%= ag.description %></div>
         <% if ag.game_attributes.any? %>
         <div class="attribute_list">

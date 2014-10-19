@@ -3,7 +3,7 @@
     <div class="col-sm-8">
       <h1>
         <%= @game.name %>
-        <%= image_tag("info_button.svg", class:"info", alt:"#{@game.description}") %>
+        <%= image_tag("info_button.svg", class:"info", title:"#{@game.description}", "data-toggle" => "tooltip", "data-placement" => "right") %>
       </h1>
     </div>
     <div class="col-sm-2 gamemeta">

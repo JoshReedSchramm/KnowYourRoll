@@ -1,2 +1,3 @@
 $(".ability_group[data-attribute-group-id=<%= @attribute_group.id %>] h4 span.name").text("<%= @attribute_group.name %>");
+$(".ability_group[data-attribute-group-id=<%= @attribute_group.id %>] h4 span.name").attr('title', '<%= @attribute_group.description %>').tooltip('fixTitle');
 $("#modal-window").modal('hide');

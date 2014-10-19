@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
+
   validates :name, presence: true
 
   has_many :attribute_groups
@@ -6,7 +7,7 @@ class Game < ActiveRecord::Base
 
   has_many :game_attributes
   has_many :characters
-  has_many :game_attribute_rules
+  has_many :game_rules
   
   accepts_nested_attributes_for :creator
 

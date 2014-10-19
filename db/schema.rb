@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141019013801) do
-=======
-ActiveRecord::Schema.define(version: 20141019025748) do
->>>>>>> 8d493dcbc71508202561117229dc7830a563e9fa
+ActiveRecord::Schema.define(version: 20141019171007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,14 +43,15 @@ ActiveRecord::Schema.define(version: 20141019025748) do
   end
 
   create_table "game_attribute_rules", force: true do |t|
-    t.integer  "game_id"
+    t.integer  "game_rule_id"
     t.string   "name"
     t.string   "description"
-    t.string   "type"
+    t.string   "rule_function"
     t.integer  "affecting_game_attribute_id"
     t.string   "affected_game_attribute_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "lookup_table_id"
   end
 
   create_table "game_attributes", force: true do |t|
@@ -73,6 +70,14 @@ ActiveRecord::Schema.define(version: 20141019025748) do
     t.boolean "allows_multiple_values", default: false
   end
 
+  create_table "game_rules", force: true do |t|
+    t.integer  "game_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "games", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -83,8 +88,16 @@ ActiveRecord::Schema.define(version: 20141019025748) do
     t.integer  "creator_id"
   end
 
+  create_table "lookup_tables", force: true do |t|
+    t.integer  "game_rule_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lookup_values", force: true do |t|
-    t.integer  "game_attribute_rule_id"
+    t.integer  "lookup_table_id"
     t.string   "input_key"
     t.string   "output_value"
     t.datetime "created_at"

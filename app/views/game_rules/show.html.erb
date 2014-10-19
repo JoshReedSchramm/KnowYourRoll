@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row gameheader">
+    <div class="col-sm-8">
+      <h1><%= @game_rule.name %> <%= image_tag("info_button.svg", class:"info", alt:"#{@game_rule.description}") %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <% @game_rule.game_attribute_rules.each do |gar| %>
+      <div class="col-sm-4">
+        <div class="col-sm-12 ability_group">
+          <h4><%= gar.name %> <%= image_tag("info_button.svg", class:"info") %></h4>
+          <div class="group_description"><%= gar.description %></div>
+          <div class="group_description">RULE FUNCTION: <strong><%= gar.rule_function%></strong></div>
+          <% if gar.lookup_table.present? %>
+            <div class="group_description">LOOKUP TABLE: <strong><%= gar.lookup_table.name %></strong></div>
+          <% end %>
+          <% if gar.affecting_game_attribute.present? %>
+            <div class="group_description">AFFECTING ATTRIBUTE: <strong><%= gar.affecting_game_attribute.name %></strong></div>
+          <% end %>
+          <% if gar.affected_game_attribute.present? %>
+            <div class="group_description">AFFECTED ATTRIBUTE: <strong><%= gar.affected_game_attribute.name %></strong></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="overlay">&nbsp;</div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "Home", root_path %>
+    </div>
+  </div>
+</div>

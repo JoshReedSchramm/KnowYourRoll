@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get :test_rules_engine, to: "game_rules#test_rules_engine", as: :test_rules_engine
+
   resources :games do
+    resources :game_rules
     resources :numeric_attributes, controller: 'game_attributes'
     resources :descriptive_attributes, controller: 'game_attributes'
     resources :multi_attributes, controller: 'game_attributes'

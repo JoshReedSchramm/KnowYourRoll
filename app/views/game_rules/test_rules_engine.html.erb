@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row gameheader">
+    <div class="col-sm-8">
+      <h1><%= @char.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <% @char.character_attributes.each do |ca| %>
+    	<% if ca.value.present? %>
+        	<div class="group_description"><%= ca.game_attribute.name %>: <strong><%= ca.value %></strong></div>
+   		<% end %>  
+    <% end %>
+  </div>
+  <div id="overlay">&nbsp;</div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "Home", root_path %>
+    </div>
+  </div>
+</div>

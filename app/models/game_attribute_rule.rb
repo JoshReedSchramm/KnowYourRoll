@@ -1,11 +1,11 @@
 class GameAttributeRule < ActiveRecord::Base
 
-  belongs_to :game
-  belongs_to :game_attribute
+  belongs_to :game_rule
+  belongs_to :lookup_table
+  belongs_to :affecting_game_attribute, class_name: 'GameAttribute', foreign_key: :affecting_game_attribute_id
+  belongs_to :affected_game_attribute, class_name: 'GameAttribute', foreign_key: :affected_game_attribute_id
 
   validates :name, presence: true
-  validates :type, presence: true
-
-  has_many :game_attributes
-  has_many :lookup_values
+  validates :rule_function, presence: true
+  
 end

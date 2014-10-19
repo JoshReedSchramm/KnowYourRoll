@@ -1,13 +1,23 @@
 <div class="container">
   <div class="row">
-    <h1>Characters for <%= @game.name %></h1>
-    <ul class="nav nav-pills">
-      <li><%= link_to "Create a Character", new_game_character_path(@game) %></li>
-      <li><%= link_to "Back to Game", game_path(@game) %></li>
-    </ul>
+    <h1>Characters for <%= link_to @game.name, game_path(@game) %></h1>
+
     <% @characters.each do |c| %>
-      <div><%= link_to c.name, [:edit, @game,c] %></div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="game_list clearfix">
+          <h3><%= c.name %></h3>
+          <ul class="nav nav-pills pull-right">
+            <li><%= link_to "Edit", [:edit, @game,c] %></li>
+          </ul>
+        </div>
+        <div class="small_label">
+            <!-- something about the char here? -->          
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
+  
+  <%= link_to "Add a Character", new_game_character_path(@game), class: "btn btn-primary btn-lg"  %>
 </div>
-

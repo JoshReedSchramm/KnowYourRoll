@@ -1,5 +1,5 @@
 <% if !model.valid? && model.errors.full_messages_for(field).any? %>
-  <ul class="alert alert-danger">
+  <ul class="field_error">
     <% model.errors.full_messages_for(field).each do |msg| %>
       <li><%= msg %></li>
     <% end %>

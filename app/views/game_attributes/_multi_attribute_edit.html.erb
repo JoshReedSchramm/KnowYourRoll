@@ -1,17 +1,39 @@
-<%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true, html: { id: "game-attribute-form-#{attribute.id}" } do |f| %>
+<%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true, html: { id: "game-attribute-form-#{attribute.id}", class: "form-inline" } do |f| %>
   <div class="alert alert-danger hide" role="alert"></div>
 	<%- f.object = attribute.becomes(attribute.class) %>
 	<div class="form-group">
 		<%= f.label :name %>
 		<%= f.text_field :name, class: "form-control" %>
   </div>
+  <% if attribute.options.any? %>
+    <div class="checkbox">
+      <%= f.label :allows_multiple_values do |l| %>
+        Allow Multiple Values <%= f.check_box :allows_multiple_values, class: "form-control" %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 <% if attribute.children.any? %>
   <div class='child-grouping'>
-    <h5>Components of <%= attribute.name %></h5>
+    <h5>
+      Components of <%= attribute.name %>
+    </h5>
     <% attribute.children.each do |a| %>
-      <%= render partial: "#{a.type.underscore}_edit", locals: { game: game, attribute: a } %>
+      <%- display_tooltip = attribute.options.any? ? false : true %>
+      <%- is_picklist_option = attribute.options.any? ? true : false %>
+      <%= render partial: "#{a.type.underscore}_edit", locals: { game: game, attribute: a, display_tooltip: display_tooltip, is_picklist_option: is_picklist_option} %>
     <% end %>
   </div>
+<% end %>
+<% if attribute.options.any? %>
+  <nav class='add_attribute'>
+    <%= link_to "Add an Option", "#", title: "Add an option to the picklist" %>
+  </nav>
+<% else %>
+  <nav class='add_attribute'>
+    <%= link_to "Add a Number", "#", title: "Numbers represent a value or score. They have a name and a min and max value" %> |
+    <%= link_to "Add a Text Block", "#", title: "Text blocks allow a character to describe something be it a single line or many lines" %> |
+    <%= link_to "Add a Picklist", "#", title: "Picklists allow the user to select from a list of options" %>
+  </nav>
 <% end %>
 <%= render partial: "on_change_script", locals: { attribute: attribute } %>

@@ -55,6 +55,10 @@ class GameAttributesController < ApplicationController
 
   def destroy
     @game_attribute.destroy
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.js 
+    end
   end
   private
 

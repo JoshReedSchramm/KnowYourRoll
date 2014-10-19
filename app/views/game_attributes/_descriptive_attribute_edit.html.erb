@@ -1,13 +1,27 @@
+<%- display_tooltip = defined?(display_tooltip) ? display_tooltip : true %>
+<%- is_picklist_option = defined?(is_picklist_option) ? is_picklist_option : false %>
+
 <%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true , html: { id: "game-attribute-form-#{attribute.id}"} do |f| %>
 	<%- f.object = attribute.becomes(attribute.class) %>
   <div class="alert alert-danger hide" role="alert"></div>
 	<div class="form-group">
-		<%= f.label :name %>
+		<%= f.label :name do |l| %>
+      Name <%= link_to("Delete #{attribute.name}", [game, @parent, attribute.becomes(GameAttribute)], method: :delete, class: "btn btn-danger", remote: true, "data-confirm" => "Are you sure you want to delete #{attribute.name}") %>
+    <% end %>
 		<%= f.text_field :name, class: "form-control" %>
 	</div>
-	<div class="form-group">
-		<%= f.label :description, "Tooltip" %>
-		<%= f.text_area :description, class: "form-control" %>
-	</div>
+  <% if display_tooltip %>
+    <div class="form-group">
+      <%= f.label :description, "Tooltip" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  <% end %>
+  <% unless is_picklist_option %>
+    <div class="checkbox">
+      <%= f.label :multi_line do |l| %>
+        <%= f.check_box :multi_line %> Allow Multiple Lines
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 <%= render partial: "on_change_script", locals: { attribute: attribute } %>

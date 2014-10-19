@@ -2,7 +2,10 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title" id="myLargeModalLabel">Editing <%= @game_attribute.name %></h4>
+      <h4 class="modal-title" id="myLargeModalLabel">
+        Editing <%= @game_attribute.name %>
+        <%= link_to("Delete #{@game_attribute.name}", game_game_attribute_path(@game, @game_attribute), method: :delete, class: "btn btn-danger", remote: true, "data-confirm" => "Are you sure you want to delete #{@game_attribute.name}") %>
+      </h4>
     </div>
     <div class="modal-body">
       <div class="container-fluid">
@@ -13,7 +16,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <button type="button" class="btn btn-default" data-dismiss="modal"><span>Finished Editing</span></button>
+            <button type="button" class="btn btn-default finished" data-dismiss="modal"><span>Finished Editing</span></button>
           </div>
         </div>
       </div>

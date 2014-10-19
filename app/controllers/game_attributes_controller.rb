@@ -41,7 +41,7 @@ class GameAttributesController < ApplicationController
 
   def update
     if @game_attribute.update_attributes(game_attribute_params)
-      redirect_to :back, notice: "#{@game_attribute.name} was updated!"
+      render :nothing => true
     else
       redirect_to :back
     end

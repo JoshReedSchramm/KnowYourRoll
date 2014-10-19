@@ -1,6 +1,6 @@
 <div class="attribute_item">
   <span class="attribute_name">
-  	<%= link_to "#{attribute.name}", edit_game_game_attribute_path(params[:id], attribute), class: "attribute_edit", data: { id: "#{attribute.id}", toogle: "modal", target: "#attribute#{attribute.id}" }  %>
+  	<%= link_to "#{attribute.name}", edit_game_game_attribute_path(params[:id], attribute), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </span>
   <span class="attribute_summary">
   	<%= truncate(build_summary(attribute.children), length:60) %>

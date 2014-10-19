@@ -1,9 +1,8 @@
-<%= form_for [game, @parent, attribute.becomes(GameAttribute)] do |f| %>
+<%= form_for [game, @parent, attribute.becomes(GameAttribute)], :remote => true do |f| %>
 	<%- f.object = attribute.becomes(attribute.class) %>
 	<div>
 		<%= f.label :name %>
 		<%= f.text_field :name %>
-	<%= f.submit "Do This #{attribute.name}" %>
 <% end %>
 <% if attribute.children.any? %>
   <ul>

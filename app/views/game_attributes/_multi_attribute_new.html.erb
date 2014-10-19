@@ -4,7 +4,6 @@
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 		<%= f.hidden_field :type, value: params[:type] %>
-	<%= f.submit "Do This #{attribute.name}" %>
 <% end %>
 <% if attribute.children.any? %>
   <ul>

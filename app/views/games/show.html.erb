@@ -1,7 +1,7 @@
 <div class="container" id="edit-game-screen">
   <div class="row gameheader">
     <div class="col-sm-8">
-      <h1>
+      <h1 data-step="1" data-intro="Welcome to Know Your Roll. We're going to walk through the creation of your first game. Here you can see the name of your game.">
         <span class='game-name'><%= @game.name %></span>
         <%= image_tag("info_button.svg", class:"info game-description", title:"#{@game.description}", "data-toggle" => "tooltip", "data-placement" => "right") %>
         <%= link_to edit_game_path, remote: true, "data-toggle" => "modal", "data-target" => "#modal-window" do |l| %>
@@ -18,6 +18,7 @@
     </div>
   </div>
   <div class="row">
+    <span data-step="2" data-intro="All games are made up of a set of attributes. These attributes define how the characters in your game will interact with the game world. We've gone ahead and put a bunch of attributes in for you based on a pretty standard fantasy RPG setup" data-position="right"></span>
     <div id="attribute_groups">
       <% @game.attribute_groups.each do |ag| %>
         <%= render partial: "/games/attribute_group", locals: { game: @game, ag: ag } %>

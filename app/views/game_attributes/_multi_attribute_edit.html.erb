@@ -27,13 +27,13 @@
 <% end %>
 <% if attribute.options.any? %>
   <nav class='add_attribute'>
-    <%= link_to "Add an Option", "#", title: "Add an option to the picklist" %>
+    <%= link_to "Add a Option", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </nav>
 <% else %>
   <nav class='add_attribute'>
-    <%= link_to "Add a Number", "#", title: "Numbers represent a value or score. They have a name and a min and max value" %> |
-    <%= link_to "Add a Text Block", "#", title: "Text blocks allow a character to describe something be it a single line or many lines" %> |
-    <%= link_to "Add a Picklist", "#", title: "Picklists allow the user to select from a list of options" %>
+    <%= link_to "Add a Number", new_game_game_attribute_path(params[:game_id], type: "NumericAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %> |
+    <%= link_to "Add a Description", new_game_game_attribute_path(params[:game_id], type: "DescriptiveAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %> |
+    <%= link_to "Add a Multi", new_game_game_attribute_path(params[:game_id], type: "MultiAttribute", game_attribute_id: attribute.id), {:remote => true, 'data-target' => '#modal-window', class: "attribute_edit"} %>
   </nav>
 <% end %>
 <%= render partial: "on_change_script", locals: { attribute: attribute } %>

@@ -11,9 +11,9 @@
         <div class="row">
           <div class="col-sm-12">
           	<% if params[:type].present? %>
-          		<%= render partial: "#{params[:type].underscore}_new",locals: { game: params[:game_id], type: params[:type], attribute_group_id: params[:attribute_group_id] } %>
+          		<%= render partial: "#{params[:type].underscore}_new",locals: { game: params[:game_id], type: params[:type], attribute_group_id: params[:attribute_group_id], game_attribute_id: params[:game_attribute_id]  } %>
           	<% else %>
-            	<%= render partial: "new_attribute", locals: { attribute_group_id: params[:attribute_group_id] } %>
+            	<%= render partial: "new_attribute", locals: { attribute_group_id: params[:attribute_group_id]} %>
             <% end %>
           </div>
         </div>

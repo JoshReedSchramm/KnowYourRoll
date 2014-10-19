@@ -1,4 +1,4 @@
-<%= form_for [@game, @parent, @game_attribute.becomes(GameAttribute)], :remote => true, html: { id: "game-attribute-form-#{@game_attribute.id}", class: "form-inline" } do |f| %>
+<%= form_for [@game, @parent, @game_attribute.becomes(GameAttribute)], { class: "form-inline" } do |f| %>
 	<%- f.object = @game_attribute.becomes(@game_attribute.class) %>
 	<div class="alert alert-danger hide" role="alert"></div>
 	<div class="form-group">

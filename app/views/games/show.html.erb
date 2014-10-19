@@ -16,7 +16,7 @@
       Created: <%= @game.created_at.strftime("%m/%d/%Y") %>
     </div>
     <div class="col-sm-2">
-      <span data-step="5" data-intro="You can click here to look at the characters in your game. You can come add new characters or edit the attributes of an existing one. Inside you'll find a custom character sheet defined by attributes and rules you create. Your players can edit their characters as they play. So forget the pencils and paper, move your tabletop rpg to the 21st century!" data-position="right">
+      <span data-step="5" data-intro="You can click here to look at the characters in your game. You can come add new characters or edit the attributes of an existing one. Inside you'll find a custom character sheet defined by attributes and rules you create. Your players can edit their characters as they play. So forget the pencils and paper, move your tabletop rpg to the 21st century!" data-position="bottom">
         <%= link_to "View Characters", game_characters_path(@game), class:"inline_nav_link" %>
       </span>
     </div>
@@ -28,7 +28,7 @@
         <%= render partial: "/games/attribute_group", locals: { game: @game, ag: ag } %>
       <% end %>
     </div>
-<span class="float: right;" data-step="4" data-intro="Inside these groups is where your game really lives. The attributes inside control what a player sees on their character sheet for your game. More than that, they can interact with each other to automatically change by rules you create! Click on the + in a group to add an attribute or click an attribute to edit one. When you add a new attribute, you'll find more information on the types and capabilities of each one."></span>
+<span data-step="4" data-intro="Inside these groups is where your game really lives. The attributes inside control what a player sees on their character sheet for your game. More than that, they can interact with each other to automatically change by rules you create! Click on the + in a group to add an attribute or click an attribute to edit one. When you add a new attribute, you'll find more information on the types and capabilities of each one." data-position="right"></span>
     <div class="col-sm-4 addgroup">
       <div class="col-sm-12 ability_group">
         <h4>Add group</h4>

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap.js
 //= require bootstrap-multiselect
+//= require isotope.min.js
 //= require_tree .
 
 $(document).ready(function() {

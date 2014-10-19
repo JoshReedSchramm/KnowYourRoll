@@ -17,6 +17,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by(gm_code: params[:id])
+    @attributes = GameAttribute.all
   end
 
   private

@@ -117,6 +117,15 @@ img.info_small {
   margin-left:5px;
 }
 
+.field_error{
+  list-style:none;
+  padding:5px 0px;
+}
+
+.field_error li {
+  color:$red;
+}
+
 .main_content {
   padding:$default_padding;
 }

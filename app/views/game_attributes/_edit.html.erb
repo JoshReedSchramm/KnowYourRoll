@@ -4,7 +4,7 @@
       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <h4 class="modal-title" id="myLargeModalLabel">
         Editing <%= @game_attribute.name %>
-        <%= link_to("Delete #{@game_attribute.name}", game_game_attribute_path(@game, @game_attribute), method: :delete, class: "btn btn-danger", remote: true, "data-confirm" => "Are you sure you want to delete #{@game_attribute.name}") %>
+        <%= link_to image_tag("delete_button.svg", class:"info"), game_game_attribute_path(@game, @game_attribute), {:remote => true, method: :delete, "data-confirm" => "Are you sure you want to delete #{@game_attribute.name}" }  %>
       </h4>
     </div>
     <div class="modal-body">

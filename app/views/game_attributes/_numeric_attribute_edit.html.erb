@@ -13,6 +13,7 @@
 		<%= f.label :max_number, "Maximum" %>
 		<%= f.number_field :max_number, class: "form-control" %>
 	</div>
+  <%= link_to image_tag("delete_button.svg", class:"info"), [game, @parent, attribute.becomes(GameAttribute)], {:remote => true, method: :delete, "data-confirm" => "Are you sure you want to delete #{attribute.name}" }  %>
 <% end %>
 
 <%= render partial: "on_change_script", locals: { attribute: attribute } %>

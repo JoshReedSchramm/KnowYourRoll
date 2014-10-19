@@ -49,6 +49,10 @@ class AttributeGroupsController < ApplicationController
 
   def destroy
     @attribute_group.destroy
+    respond_to do |format|
+      format.html { redirect_to @attribute_group.game, notice: "#{@attribute_group.name} was deleted" }
+      format.js 
+    end
   end
 
   private

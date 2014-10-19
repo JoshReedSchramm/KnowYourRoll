@@ -349,55 +349,55 @@ class DefaultGameService
     at_longbow_properties = DescriptiveAttribute.new(name: "Longbow Properties", description: "The various special properties of the longbow weapon", sequence: 3)
     at_longbow.children << at_longbow_properties
 
-    at_equipment = MultiAttribute.new(name: "Equipment", description: "A character's armor and equipped items", group_sequence: 8, allows_multiple_values: true)
-    combat_group.game_attributes << at_equipment
+    # at_equipment = MultiAttribute.new(name: "Equipment", description: "A character's armor and equipped items", group_sequence: 8, allows_multiple_values: true)
+    # combat_group.game_attributes << at_equipment
     
-    at_armor = MultiAttribute.new(name: "Armor", description: "A character's equipped armor", sequence: 1)
-    at_equipment.children << at_armor
+    # at_armor = MultiAttribute.new(name: "Armor", description: "A character's equipped armor", sequence: 1)
+    # at_equipment.children << at_armor
     
-    at_light_armor = MultiAttribute.new(name: "Light Armor", description: "Available light armors for a character", sequence: 1)
-    at_armor.children << at_light_armor
+    # at_light_armor = MultiAttribute.new(name: "Light Armor", description: "Available light armors for a character", sequence: 1)
+    # at_armor.children << at_light_armor
 
-    at_padded_armor = DescriptiveAttribute.new(name: "Padded Armor", sequence: 1)
-    at_light_armor.children << at_padded_armor
-    at_leather_armor = DescriptiveAttribute.new(name: "Leather Armor", sequence: 2)
-    at_light_armor.children << at_leather_armor
-    at_studded_armor = DescriptiveAttribute.new(name: "Studded Leather Armor", sequence: 3)
-    at_light_armor.children << at_studded_armor
-    
-    at_medium_armor = MultiAttribute.new(name: "Medium Armor", description: "Available medium armors for a character", sequence: 2)
-    at_armor.children << at_medium_armor
-    
-    at_hide_armor = DescriptiveAttribute.new(name: "Hide Armor", sequence: 1)
-    at_medium_armor.children << at_hide_armor
-    at_chain_shirt_armor = DescriptiveAttribute.new(name: "Chain Shirt Armor", sequence: 2)
-    at_medium_armor.children << at_chain_shirt_armor
-    at_scale_mail_armor = DescriptiveAttribute.new(name: "Scale Mail Armor", sequence: 3)
-    at_medium_armor.children << at_scale_mail_armor
-    at_breastplate_armor = DescriptiveAttribute.new(name: "Breastplate Armor", sequence: 4)
-    at_medium_armor.children << at_breastplate_armor
-    at_half_plate_armor = DescriptiveAttribute.new(name: "Half Plate Armor", sequence: 5)
-    at_medium_armor.children << at_half_plate_armor
-    
-    at_heavy_armor = MultiAttribute.new(name: "Heavy Armor", description: "Available heavy armors for a character", sequence: 3)
-    at_armor.children << at_heavy_armor
-    
-    at_ring_mail_armor = DescriptiveAttribute.new(name: "Ring Mail Armor", sequence: 1)
-    at_heavy_armor.children << at_ring_mail_armor
-    at_chain_mail_armor = DescriptiveAttribute.new(name: "Chain Mail Armor", sequence: 2)
-    at_heavy_armor.children << at_chain_mail_armor
-    at_splint_armor = DescriptiveAttribute.new(name: "Splint Armor", sequence: 3)
-    at_heavy_armor.children << at_splint_armor
-    at_plate_armor = DescriptiveAttribute.new(name: "Plate Armor", sequence: 4)
-    at_heavy_armor.children << at_plate_armor
-
-    at_shield = MultiAttribute.new(name: "Shields", description: "Available shields for a character", sequence: 2)
-    at_equipment.children << at_shield
-
-    at_light_shield = DescriptiveAttribute.new(name: "Light Shield", sequence: 1)
-    at_shield.children << at_light_shield
-    at_heavy_shield = DescriptiveAttribute.new(name: "Heavy Shield", sequence: 2)
-    at_shield.children << at_heavy_shield
+    # at_padded_armor = DescriptiveAttribute.new(name: "Padded Armor", sequence: 1)
+    # at_light_armor.children << at_padded_armor
+    # at_leather_armor = DescriptiveAttribute.new(name: "Leather Armor", sequence: 2)
+    # at_light_armor.children << at_leather_armor
+    # at_studded_armor = DescriptiveAttribute.new(name: "Studded Leather Armor", sequence: 3)
+    # at_light_armor.children << at_studded_armor
+    #
+    # at_medium_armor = MultiAttribute.new(name: "Medium Armor", description: "Available medium armors for a character", sequence: 2)
+    # at_armor.children << at_medium_armor
+    #
+    # at_hide_armor = DescriptiveAttribute.new(name: "Hide Armor", sequence: 1)
+    # at_medium_armor.children << at_hide_armor
+    # at_chain_shirt_armor = DescriptiveAttribute.new(name: "Chain Shirt Armor", sequence: 2)
+    # at_medium_armor.children << at_chain_shirt_armor
+    # at_scale_mail_armor = DescriptiveAttribute.new(name: "Scale Mail Armor", sequence: 3)
+    # at_medium_armor.children << at_scale_mail_armor
+    # at_breastplate_armor = DescriptiveAttribute.new(name: "Breastplate Armor", sequence: 4)
+    # at_medium_armor.children << at_breastplate_armor
+    # at_half_plate_armor = DescriptiveAttribute.new(name: "Half Plate Armor", sequence: 5)
+    # at_medium_armor.children << at_half_plate_armor
+    #
+    # at_heavy_armor = MultiAttribute.new(name: "Heavy Armor", description: "Available heavy armors for a character", sequence: 3)
+    # at_armor.children << at_heavy_armor
+    #
+    # at_ring_mail_armor = DescriptiveAttribute.new(name: "Ring Mail Armor", sequence: 1)
+    # at_heavy_armor.children << at_ring_mail_armor
+    # at_chain_mail_armor = DescriptiveAttribute.new(name: "Chain Mail Armor", sequence: 2)
+    # at_heavy_armor.children << at_chain_mail_armor
+    # at_splint_armor = DescriptiveAttribute.new(name: "Splint Armor", sequence: 3)
+    # at_heavy_armor.children << at_splint_armor
+    # at_plate_armor = DescriptiveAttribute.new(name: "Plate Armor", sequence: 4)
+    # at_heavy_armor.children << at_plate_armor
+    #
+    # at_shield = MultiAttribute.new(name: "Shields", description: "Available shields for a character", sequence: 2)
+    # at_equipment.children << at_shield
+    #
+    # at_light_shield = DescriptiveAttribute.new(name: "Light Shield", sequence: 1)
+    # at_shield.children << at_light_shield
+    # at_heavy_shield = DescriptiveAttribute.new(name: "Heavy Shield", sequence: 2)
+    # at_shield.children << at_heavy_shield
 
     at_spells = MultiAttribute.new(name: "Spells", description: "A character's spell attacks and defenses", group_sequence: 9, allows_multiple_values: true)
     combat_group.game_attributes << at_spells
@@ -486,20 +486,20 @@ class DefaultGameService
     character_description_group.game_attributes << at_race
     at_human = DescriptiveAttribute.new(name: "Human", sequence: 1)
     at_race.children << at_human
-    at_elf = MultiAttribute.new(name: "Elf", sequence: 2)
+    at_elf = DescriptiveAttribute.new(name: "Elf", sequence: 2)
     at_race.children << at_elf
-    at_wood_elf = DescriptiveAttribute.new(name: "Wood Elf", sequence: 1)
-    at_elf.children << at_wood_elf
-    at_high_elf = DescriptiveAttribute.new(name: "High Elf", sequence: 2)
-    at_elf.children << at_high_elf
-    at_dark_elf = DescriptiveAttribute.new(name: "Dark Elf", sequence: 3)
-    at_elf.children << at_dark_elf
-    at_dwarf = MultiAttribute.new(name: "Dwarf", sequence: 3)
+    # at_wood_elf = DescriptiveAttribute.new(name: "Wood Elf", sequence: 1)
+    # at_elf.children << at_wood_elf
+    # at_high_elf = DescriptiveAttribute.new(name: "High Elf", sequence: 2)
+    # at_elf.children << at_high_elf
+    # at_dark_elf = DescriptiveAttribute.new(name: "Dark Elf", sequence: 3)
+    # at_elf.children << at_dark_elf
+    at_dwarf = DescriptiveAttribute.new(name: "Dwarf", sequence: 3)
     at_race.children << at_dwarf
-    at_hill_dwarf = DescriptiveAttribute.new(name: "Hill Dwarf", sequence: 1)
-    at_dwarf.children << at_hill_dwarf
-    at_mountain_dwarf = DescriptiveAttribute.new(name: "Mountain Dwarf", sequence: 2)
-    at_dwarf.children << at_mountain_dwarf
+    # at_hill_dwarf = DescriptiveAttribute.new(name: "Hill Dwarf", sequence: 1)
+    # at_dwarf.children << at_hill_dwarf
+    # at_mountain_dwarf = DescriptiveAttribute.new(name: "Mountain Dwarf", sequence: 2)
+    # at_dwarf.children << at_mountain_dwarf
 
     at_class = MultiAttribute.new(name: "Class", description: "The character's class", group_sequence: 3)
     character_description_group.game_attributes << at_class

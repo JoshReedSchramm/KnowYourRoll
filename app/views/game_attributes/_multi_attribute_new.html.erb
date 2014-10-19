@@ -1,13 +1,20 @@
-<%= form_for [game, @parent, attribute.becomes(GameAttribute)] do |f| %>
-	<%- f.object = attribute.becomes(attribute.class) %>
-	<div>
+<%= form_for [@game, @parent, @game_attribute.becomes(GameAttribute)], :remote => true, html: { id: "game-attribute-form-#{@game_attribute.id}", class: "form" } do |f| %>
+	<%- f.object = @game_attribute.becomes(@game_attribute.class) %>
+	<div class="alert alert-danger hide" role="alert"></div>
+	<div class="form-group">
 		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
 		<%= f.hidden_field :type, value: params[:type] %>
+		<%= f.submit "Create" , class: "btn btn-primary" %>
 <% end %>
-<% if attribute.children.any? %>
+<% if @game_attribute.children.any? %>
   <ul>
-    <% attribute.children.each do |a| %>
+    <% @game_attribute.children.each do |a| %>
       <%= render partial: "#{a.type.underscore}", locals: { game: game, attribute: a } %>
     <% end %>
   </ul>

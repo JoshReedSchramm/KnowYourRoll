@@ -10,10 +10,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
-          	<% if @game_attribute.present? %>
-          		<%= render partial: "#{@game_attribute.type.underscore}_new",locals: { game: @game, attribute: @game_attribute } %>
+          	<% if params[:type].present? %>
+          		<%= render partial: "#{params[:type].underscore}_new",locals: { game: params[:game_id], type: params[:type], attribute_group_id: params[:attribute_group_id] } %>
           	<% else %>
-            	<%= render partial: "new_attribute" %>
+            	<%= render partial: "new_attribute", locals: { attribute_group_id: params[:attribute_group_id] } %>
             <% end %>
           </div>
         </div>

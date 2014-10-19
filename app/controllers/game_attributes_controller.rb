@@ -4,8 +4,9 @@ class GameAttributesController < ApplicationController
 
   def new
     @game_attribute = params[:type].constantize.new
+    @game = Game.find(params[:game_id])
     @game_attribute.game_id = params[:game_id]
-    @game_attribute.attribute_group_id = @parent unless params[:attribute_group_id].blank?
+    @game_attribute.attribute_group_id = @parent unless params[:attribute_group].blank?
     @game_attribute.parent_id = @parent unless params[:game_attribute_id].blank?
     respond_to do |format|
       format.html
@@ -21,10 +22,7 @@ class GameAttributesController < ApplicationController
     @game_attribute.attribute_group_id = @parent.id unless params[:attribute_group_id].blank?
     @game_attribute.parent_id = @parent.id unless params[:game_attribute_id].blank?
     if @game_attribute.save
-      respond_to do |format|
-        format.html
-        format.js
-      end
+      redirect_to @game_attribute.game
     else
       
     end

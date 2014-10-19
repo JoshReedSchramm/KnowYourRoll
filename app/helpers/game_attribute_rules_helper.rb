@@ -1,0 +1,2 @@
+module GameAttributeRulesHelper
+end

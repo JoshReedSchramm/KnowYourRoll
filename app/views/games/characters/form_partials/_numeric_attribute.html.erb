@@ -2,8 +2,8 @@
 
 <% if character_attribute %>
   <%= form.fields_for :character_attributes, character_attribute do |ca| %>
-    <span class="form_group">
-      <%= ca.number_field :value, min: game_attribute.min_number, max: game_attribute.max_number %><br>
+    <span class="attribute_group">
+      <%= ca.number_field :value, min: game_attribute.min_number, max: game_attribute.max_number, :class=> "numeric_input",  data: { toggle: "tooltip", placement: "right", title: "Must be between #{game_attribute.min_number} and #{game_attribute.max_number}"} %><br>
       <% if field_label != nil %>
         <% field_label.slice! parent_label %>
         <%= ca.label :value, field_label %>

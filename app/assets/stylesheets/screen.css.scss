@@ -37,7 +37,12 @@ label{
 
 .header_info {
   color:$almostblack;
-  font-size:.8em;
+  font-size:.5em;
+  display:inline;
+}
+
+.inline_nav_link {
+  font-size:1em;
 }
 
 a {
@@ -68,12 +73,12 @@ h5 {
 
 .gameheader {
   padding:20px 0px;
-  color:$red;
   margin-bottom:20px;
 }
 
 .gameheader h1{
   margin:0px;
+  color:$red;
 }
 
 

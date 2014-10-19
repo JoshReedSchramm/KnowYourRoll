@@ -1,7 +1,12 @@
 <div id="header" class="container">
   <div class="row">
     <div class="col-sm-4">
-      <%= image_tag("logo_full.png", class:"logo_full", alt: "logo") %>
+      <%= link_to root_path do %>
+        <%= image_tag("logo_full.png", class:"logo_full", alt: "logo") %>
+      <% end %>
+    </div>
+    <div class="col-sm-8 pull-right">
+      Signed In As: <%= current_user.email %>
     </div>
   </div>
 </div>

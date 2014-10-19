@@ -1,0 +1,26 @@
+<div class="container main_content">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Setup Your Account</h2>
+
+      <%= form_for(resource, as: resource_name, url: user_confirmation_path) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :password %> 
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          <% if @validatable %><span class='help-text'>(<%= @minimum_password_length %> characters minimum)</span><% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <%= hidden_field_tag :confirmation_token, params[:confirmation_token] %>
+
+        <%= f.submit "Confirm Account", class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
+</div>
